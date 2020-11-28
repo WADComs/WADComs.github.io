@@ -27,7 +27,7 @@ Kerberos:
 
 No_Creds:
   label: No Creds
-  description: You don't have any usernames or passwords and need to know what you can do.
+  description: You don't have any usernames or passwords and need to know what you can still do.
 
 RPC:
   label: RPC
