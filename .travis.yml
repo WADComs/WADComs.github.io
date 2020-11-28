@@ -1,6 +1,6 @@
 ---
 language: python
-python
+python:
   - 3.6
 install:
   - pip install jsonschema yamllint
