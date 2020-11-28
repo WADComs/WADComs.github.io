@@ -1,0 +1,200 @@
+<style>
+.selected {
+	color: #ff0000 !important;
+	border-color: #ff0000 !important;
+}
+</style>
+
+<div id="bin-search-wrapper">
+    <ul id="bin-search-filters" class="function-list">
+        {% for function_pair in site.data.functions %}
+        {% assign function_id = function_pair[0] %}
+        {% assign function = function_pair[1] %}
+	<li><input type="checkbox" id="{{ function.label }}" onclick='handleChange(this, "{{ function.label }}");'><label for="{{ function.label }}" data-title="{{ function.description | replace: '\n', ' ' }}">{{ function.label }}</label></li>
+        {% endfor %}
+    </ul>
+
+    <input id="bin-search" type="text" placeholder="Search among {{ site.wadcoms | size }} commands: <command> +<filter> ..."/>
+</div>
+
+<div id="bin-table-wrapper">
+    <table id="bin-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in site.wadcoms %}
+            <tr>
+		    <td><div class="bin-name"><a href="{{ file.url }}" style="text-decoration: none;">{% include get_code.html page_test=file %}</a></div><p style="margin-top: -12px;">{% include function_list.html bin=file %}</p></td>
+            </tr>
+            {% endfor %}
+	    <!--{% include get_bin_name path=file.path %}-->
+        </tbody>
+        <tfoot>
+            <tr><td id="search-message" colspan="2">No binary matches...</td></tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+
+ function handleChange(checkbox, label) {
+	 if (checkbox.checked == true) {
+		 console.log(label);
+		 document.getElementById(label).className = 'match';
+		 var slash = window.location.href.lastIndexOf("/");
+		 if (window.location.href[slash+1] == "#") {
+		     window.location.href+='+' + label
+		 } else {
+		     window.location.href+='#+' + label
+		 }
+	 } else {
+		 document.getElementById(label).className = "";
+		 label = label.replace(" ", "%20");
+		 var new_href = window.location.href.replace("+"+label, "");
+		 window.location.href = new_href;
+		 if (window.location.hash == "") {
+			 document.getElementById("bin-search").value = "";
+		 }
+	 }
+ }
+
+ function filter(query) {
+     var queryArray = query.toLowerCase().trim().split(/ *\+/);
+     var binPattern = queryArray[0];
+     var functionPatterns = queryArray.splice(1);
+
+     // filter rows
+     var noResults = true;
+     document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
+         var show = true;
+
+         var binName = row.children[0].firstElementChild.innerText.toLowerCase();
+	     
+         var functionElems = Array.from(row.children[0].childNodes[2].children);
+	 
+         if (show) {
+             functionElems.forEach((item) => {
+                 item.className = '';
+             });
+	     functionElems.forEach((item) => {
+		 console.log("current item is " + item.innerText);
+	         let siblings = [];
+		 if (item.parentNode) {
+		     let sibling = item.parentNode.firstChild;
+		     while (sibling) {
+		         if (sibling.nodeType == 1 && sibling !== item) {
+			     siblings.push(sibling);
+			 }
+			     sibling = sibling.nextSibling;
+		     }
+		     for (i = 0; i < siblings.length; i++ ) {
+			 console.log("current sibling is " + siblings[i].innerText);
+		         var found = false;
+			 functionPatterns.forEach((pattern) => {
+		             console.log("Pattern: " + pattern);
+			     if (!pattern) {
+			         return;
+			     }
+					 
+			     if (siblings[i].innerText.toLowerCase().startsWith(pattern.toLowerCase())) {
+			         found = true;
+			     }
+			 });
+			 if (found) {
+			     console.log("found in " + siblings[i].innerText);
+	                     siblings[i].className = 'match';
+			 }
+		     }
+		     functionPatterns.forEach((p) => {
+			     if (!p) {
+				     return;
+			     }
+
+			     if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
+				     console.log("Parent matches!");
+				     item.className = 'match';
+			     }
+		     });
+
+		 }
+	     });
+
+         }
+	 var filled = true;
+	 var found_binName = false;
+         if (binName.indexOf(binPattern) !== -1) {
+		 found_binName = true;
+	 }
+
+	 functionElems.forEach((i) => {
+	     if (i.className !== "match") {
+	         filled = false;
+	     }
+	 });
+	 if (!filled && functionPatterns.length != 0 || !found_binName) {
+	     console.log("not filled");
+	     row.style.display = 'none';
+	 } else {
+	     row.style.display = '';
+	     noResults = false;
+	     console.log("filled! " + row.style.display);
+	 }
+     });
+
+     // update the search message visibility
+     var searchMessage = document.getElementById('search-message');
+     searchMessage.style.display = noResults ? 'table-cell' : 'none';
+ }
+
+ function applyFilter() {
+     // filter on load according to the URL
+     var searchBox = document.getElementById('bin-search');
+     var query = decodeURIComponent(location.hash.slice(1));
+     filter(query);
+     if (query) {
+         searchBox.value = query;
+     }
+ }
+
+ function setup() {
+     var searchBox = document.getElementById('bin-search');
+
+     // ensure height during filtering
+     var binTableWrapper = document.getElementById('bin-table-wrapper');
+     binTableWrapper.style.height = binTableWrapper.clientHeight + 'px';
+
+     // handle user input
+     searchBox.addEventListener('input', function () {
+         var query = searchBox.value;
+         history.replaceState(null, null, encodeURI('#' + query));
+         applyFilter();
+     });
+
+     // handle shortcuts
+     addEventListener('keydown', function (event) {
+         // focus search box on valid keydown
+         if (event.key.toLowerCase().match(/^[+a-z]$/) &&
+             !(event.ctrlKey || event.altKey || event.metaKey)) {
+             searchBox.focus();
+             searchBox.parentElement.scrollIntoView();
+         }
+         // clear filter on escape
+         else if (event.key === 'Escape') {
+             location.hash = searchBox.value = '';
+             searchBox.focus();
+             searchBox.parentElement.scrollIntoView();
+         }
+     });
+
+     // handle URL changes
+     window.onhashchange = applyFilter;
+
+     // trigger filter on page load
+     applyFilter();
+ }
+
+ setup();
+</script>

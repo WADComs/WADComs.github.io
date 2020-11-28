@@ -1,0 +1,16 @@
+---
+title: WADComs
+
+exclude: ['/scripts', '/Gemfile', '/Makefile', '/README.md']
+
+permalink: pretty
+
+collections:
+  wadcoms:
+    output: true
+
+defaults:
+  - scope:
+      path: '_wadcoms'
+    values:
+      layout: bin

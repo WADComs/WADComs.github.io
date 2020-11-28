@@ -1,0 +1,30 @@
+---
+layout: common
+---
+
+{% capture bin_name %}{% include get_bin_name path=page.path %}{% endcapture %}
+
+{% include page_title.html title=bin_name %}
+
+{% include function_list.html bin=page %}
+
+{{ page.description | markdownify }}
+
+Command:
+{% for function_pair in site.data.functions %}
+{% assign function_id = function_pair[0] %}
+{% assign function = function_pair[1] %}
+{% assign examples = page.functions[function_id] %}
+{% unless examples %}{% continue %}{% endunless %}
+<ul class="examples">
+
+{% assign code_es = examples.first.code | escape | strip_newlines %}
+{% if code_es != "empty" %}
+    <li>
+        <pre><code>{{ examples.first.code | escape }}</code></pre>
+    </li>
+{% break %}
+{% endif %}
+
+</ul>
+{% endfor %}
