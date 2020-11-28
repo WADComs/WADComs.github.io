@@ -1,6 +1,6 @@
 ---
 description: |
-  dementor.py interacts with the printer spooler on a host to trigger an authentication from the target IP to an attacker controlled host (usually an SMB or HTTP server). This captured authentication can then be relayed to authenticated to other hosts. See more in ntlmrelayx.py. 
+  dementor.py interacts with the printer spooler on a host to trigger an authentication from the target IP to an attacker controlled host (usually an SMB or HTTP server). This captured authentication can then be relayed to authenticated to other hosts. See more in ntlmrelayx.py.
 
   Command Reference:
 
