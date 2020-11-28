@@ -45,7 +45,7 @@ def build_schema():
                 'additionalProperties': False
             }
         },
-        'required': ['filters', 'items'],
+        'required': ['items'],
         'additionalProperties': False
     }
 
