@@ -11,6 +11,7 @@ def parse_yaml(path):
 
 def build_schema():
     filter_names = next(parse_yaml('_data/filters.yml')).keys()
+    item_names = next(parse_yaml('_data/items.yml')).keys()
     return {
         "definitions": {
             'examples': {
@@ -29,6 +30,13 @@ def build_schema():
         'type': 'object',
         'properties': {
             'description': {'type': 'string'},
+            'items': {
+                'type': 'object',
+                "patternProperties": {
+                    '^({})$'.format('|'.join(item_names)): {'$ref': '#/definitions/examples'}
+                },
+                'additionalProperties': False
+            },
             'filters': {
                 'type': 'object',
                 "patternProperties": {
@@ -37,7 +45,7 @@ def build_schema():
                 'additionalProperties': False
             }
         },
-        'required': ['filters'],
+        'required': ['filters', 'items'],
         'additionalProperties': False
     }
 
