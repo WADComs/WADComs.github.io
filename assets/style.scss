@@ -93,11 +93,13 @@ h2, h3, h4, h5, h5 {
 // binary list and search
 
 #bin-search-wrapper {
-    margin: 50px 0;
+    margin: 20px 0;
     padding: 10px 0;
     position: relative; // XXX needed for tooltip sizing
 
     #bin-search-filters {
+	width: 50%;
+	float: right;
         text-align: center;
 	
 	input[type=checkbox] + label {
@@ -158,9 +160,9 @@ h2, h3, h4, h5, h5 {
     }
 }
 
-// function description
+// filter description
 
-.function-list {
+.filter-list {
     font-size: 0.8rem;
     list-style: none;
     padding: 0;
@@ -253,7 +255,7 @@ h2, h3, h4, h5, h5 {
     background: $marked;
 }
 
-.function-name {
+.filter-name {
     font-size: 1.4rem;
     font-weight: bold;
 }

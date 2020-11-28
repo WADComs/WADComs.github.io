@@ -14,13 +14,14 @@ description: |
 
   	Password: password123
 
-functions:
+items:
   Password:
     - code: |
         python3 dementor.py -u john -p password123 -d test.local 10.10.10.2 10.10.10.1
   Username:
     - code: |
         empty
+filters:
   RPC:
     - code: |
         empty

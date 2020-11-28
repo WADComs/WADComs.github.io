@@ -1,0 +1,17 @@
+I"í<p>Impacketâ€™s dcomexec.py provides an interactive shell on the Windows host similar to wmiexec.py, but using varying DCOM endpoints.</p>
+
+<p>Currently supports MMC20.Application, ShellWindows, and ShellBrowserWindow DCOM objects.</p>
+
+<p>Command Reference:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Target IP: 10.10.10.1
+
+Domain: test.local
+
+Username: john
+
+Password: password123
+
+DCOM Object: MMC20
+</code></pre></div></div>
+:ET

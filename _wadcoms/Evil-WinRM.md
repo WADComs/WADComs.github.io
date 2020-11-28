@@ -9,13 +9,14 @@ description: |
   	Username: john
 
   	Password: password123
-functions:
+items:
   Password:
     - code: |
         evil-winrm -i 10.10.10.1 -u john -p password123
   Username:
     - code: |
         empty
+filters:
   WMI:
     - code: |
         empty

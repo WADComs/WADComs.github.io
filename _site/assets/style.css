@@ -24,9 +24,9 @@ h2:target, h3:target, h4:target, h5:target, h5:target { border-left: 5px solid #
 
 h2:hover .permalink, h3:hover .permalink, h4:hover .permalink, h5:hover .permalink, h5:hover .permalink { visibility: visible; }
 
-#bin-search-wrapper { margin: 50px 0; padding: 10px 0; position: relative; }
+#bin-search-wrapper { margin: 20px 0; padding: 10px 0; position: relative; }
 
-#bin-search-wrapper #bin-search-filters { text-align: center; }
+#bin-search-wrapper #bin-search-filters { width: 50%; float: right; text-align: center; }
 
 #bin-search-wrapper #bin-search-filters input[type=checkbox] + label { background: #f4fff4; font-size: initial; border-radius: 0.25em; }
 
@@ -44,23 +44,23 @@ h2:hover .permalink, h3:hover .permalink, h4:hover .permalink, h5:hover .permali
 
 #bin-table #search-message { display: none; text-align: center; padding: 1em; }
 
-.function-list { font-size: 0.8rem; list-style: none; padding: 0; margin: 0; }
+.filter-list { font-size: 0.8rem; list-style: none; padding: 0; margin: 0; }
 
-.function-list li { display: inline-block; }
+.filter-list li { display: inline-block; }
 
-.function-list li a { display: inline-block; padding: 0.25em 0.5em; margin: 0.2em 0; border: 1px solid #07bf07; }
+.filter-list li a { display: inline-block; padding: 0.25em 0.5em; margin: 0.2em 0; border: 1px solid #07bf07; }
 
-.function-list li a:link, .function-list li a:visited { color: #07bf07; text-decoration: none; }
+.filter-list li a:link, .filter-list li a:visited { color: #07bf07; text-decoration: none; }
 
-.function-list li a:hover { color: #00ff00; border-color: #00ff00; }
+.filter-list li a:hover { color: #00ff00; border-color: #00ff00; }
 
-.function-list li.match a { background: #ccffcc; }
+.filter-list li.match a { background: #ccffcc; }
 
-.function-list li input[type=checkbox] + label { display: inline-block; padding: 0.25em 0.5em; margin: 0.2em 0; border: 1px solid #07bf07; color: #07bf07; text-decoration: none; }
+.filter-list li input[type=checkbox] + label { display: inline-block; padding: 0.25em 0.5em; margin: 0.2em 0; border: 1px solid #07bf07; color: #07bf07; text-decoration: none; }
 
-.function-list li input[type=checkbox]:hover + label { color: #00ff00; border-color: #00ff00; }
+.filter-list li input[type=checkbox]:hover + label { color: #00ff00; border-color: #00ff00; }
 
-.function-list li.match input[type=checkbox] + label { background: #ccffcc; }
+.filter-list li.match input[type=checkbox] + label { background: #ccffcc; }
 
 .examples { display: table; width: 100%; table-layout: fixed; counter-reset: item; margin: 0; padding: 0; }
 
@@ -72,7 +72,7 @@ h2:hover .permalink, h3:hover .permalink, h4:hover .permalink, h5:hover .permali
 
 .bin-name { font-family: monospace; font-size: 1.0rem; padding: 0.75em 1.0em; border-radius: 0.25em; background: #ccffcc; }
 
-.function-name { font-size: 1.4rem; font-weight: bold; }
+.filter-name { font-size: 1.4rem; font-weight: bold; }
 
 .github-buttons { display: inline-block; margin-left: 10px; }
 

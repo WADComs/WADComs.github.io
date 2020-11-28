@@ -1,0 +1,15 @@
+<ul class="filter-list">
+    {% for item_pair in site.data.items %}
+    {% assign item_id = item_pair[0] %}
+    {% assign item = item_pair[1] %}
+    {% unless include.bin.items[item_id] %}{% continue %}{% endunless %}
+    <li><a href="{{ include.bin.url }}#{{ item_id }}">{{ item.label }}</a></li>
+    {% endfor %}
+
+    {% for filter_pair in site.data.filters %}
+    {% assign filter_id = filter_pair[0] %}
+    {% assign filter = filter_pair[1] %}
+    {% unless include.bin.filters[filter_id] %}{% continue %}{% endunless %}
+    <li><a href="{{ include.bin.url }}#{{ filter_id }}">{{ filter.label }}</a></li>
+    {% endfor %}
+</ul>

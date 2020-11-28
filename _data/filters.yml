@@ -1,0 +1,22 @@
+---
+# this is the rendering order of filters
+
+SMB:
+  label: SMB
+  description: You've found the SMB service open  and need to know what you can do with it.
+
+WMI:
+  label: WMI
+  description: You've found the Windows Management Intstrumentation (WMI) service open and need to know what you can do with it.
+
+DCOM:
+  label: DCOM
+  description: You've found the DCOM service open and need to know what you can do with it.
+
+Kerberos:
+  label: Kerberos
+  description: You've found the kerberos service open and need to know what you can do with it.
+
+RPC:
+  label: RPC
+  description: You've found the RPC service open and need to know what you can do with it.

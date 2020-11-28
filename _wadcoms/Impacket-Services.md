@@ -14,13 +14,14 @@ description: |
 
   	Action: list
 
-functions:
+items:
   Password:
     - code: |
         python3 services.py test.local/john:password123@10.10.10.1 list
   Username:
     - code: |
         empty
+filters:
   RPC:
     - code: |
         empty

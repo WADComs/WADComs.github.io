@@ -6,15 +6,15 @@ layout: common
 
 {% include page_title.html title=bin_name %}
 
-{% include function_list.html bin=page %}
+{% include filter_list.html bin=page %}
 
 {{ page.description | markdownify }}
 
 Command:
-{% for function_pair in site.data.functions %}
-{% assign function_id = function_pair[0] %}
-{% assign function = function_pair[1] %}
-{% assign examples = page.functions[function_id] %}
+{% for item_pair in site.data.items %}
+{% assign item_id = item_pair[0] %}
+{% assign item = item_pair[1] %}
+{% assign examples = page.items[item_id] %}
 {% unless examples %}{% continue %}{% endunless %}
 <ul class="examples">
 

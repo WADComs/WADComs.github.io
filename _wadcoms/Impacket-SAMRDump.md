@@ -12,13 +12,14 @@ description: |
 
   	Password: password123
 
-functions:
+items:
   Password:
     - code: |
         python3 samrdump.py test.local/john:password123@10.10.10.1
   Username:
     - code: |
         empty
+filters:
   RPC:
     - code: |
         empty

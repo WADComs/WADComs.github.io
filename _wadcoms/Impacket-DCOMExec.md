@@ -15,13 +15,14 @@ description: |
   	Password: password123
 
   	DCOM Object: MMC20
-functions:
+items:
   Password:
     - code: |
         python3 dcomexec.py -object MMC20 test.local/john:password123@10.10.10.1
   Username:
     - code: |
         empty
+filters:
   DCOM:
     - code: |
         empty

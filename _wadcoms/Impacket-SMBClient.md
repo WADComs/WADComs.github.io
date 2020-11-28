@@ -12,13 +12,14 @@ description: |
 
   	Password: password123
 
-functions:
+items:
   Password:
     - code: |
         python3 smbclient.py test.local/john:password123@10.10.10.1
   Username:
     - code: |
         empty
+filters:
   SMB:
     - code: |
         empty

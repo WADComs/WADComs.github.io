@@ -1,0 +1,1245 @@
+I"�P<p><img src="/assets/logo.png" alt="logo" class="logo" /></p>
+
+<p>WADComs is an interactive cheat sheet, containing a curated list of Unix/Windows offensive tools and their respective commands.</p>
+
+<p>If you hate constantly looking up the right command to use against a Windows or Active Directory enfironment (like me), this project should help ease the pain a bit. Just select what information you currently have related to the Windows machine (passwords, usernames, services, etc.), and it will display a list of tools you can try against the machine, along with a template command for easy copy/pasting. See the full list of <a href="/filters/">filters</a>.</p>
+
+<p>This project was inspired by <a href="https://gtfobins.github.io/">GTFOBins</a> and <a href="https://lolbas-project.github.io/">LOLBAS</a>.</p>
+
+<p>I’m hoping to make WADComs a <a href="https://github.com/WADComs/WADComs.github.io">collaborative project</a>, so please feel free to <a href="/contribute/">contribute</a> your commands.</p>
+
+<style>
+.selected {
+	color: #ff0000 !important;
+	border-color: #ff0000 !important;
+}
+</style>
+
+<div id="bin-search-wrapper">
+
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>Filters:</h3>
+        
+        
+        
+	<li><input type="checkbox" id="SMB" name="filter_name" onclick="handleChange(this, &quot;SMB&quot;);" /><label id="SMB_label" for="SMB" data-title="You've found the SMB service open  and need to know what you can do with it.">SMB</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="WMI" name="filter_name" onclick="handleChange(this, &quot;WMI&quot;);" /><label id="WMI_label" for="WMI" data-title="You've found the Windows Management Intstrumentation (WMI) service open and need to know what you can do with it.">WMI</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="DCOM" name="filter_name" onclick="handleChange(this, &quot;DCOM&quot;);" /><label id="DCOM_label" for="DCOM" data-title="You've found the DCOM service open and need to know what you can do with it.">DCOM</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="Kerberos" name="filter_name" onclick="handleChange(this, &quot;Kerberos&quot;);" /><label id="Kerberos_label" for="Kerberos" data-title="You've found the kerberos service open and need to know what you can do with it.">Kerberos</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="RPC" name="filter_name" onclick="handleChange(this, &quot;RPC&quot;);" /><label id="RPC_label" for="RPC" data-title="You've found the RPC service open and need to know what you can do with it.">RPC</label></li>
+        
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>What you have:</h3>
+	
+	
+	
+	<li><input type="checkbox" id="Username" onclick="handleChange(this, &quot;Username&quot;);" /><label id="Username_label" for="Username" data-title="You've found username(s) and need to know what you can do with them.">Username</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Password" onclick="handleChange(this, &quot;Password&quot;);" /><label id="Password_label" for="Password" data-title="You've found password(s) and need to know what you can do with them.">Password</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="No Creds" onclick="handleChange(this, &quot;No Creds&quot;);" /><label id="No Creds_label" for="No Creds" data-title="You don't have any usernames or passwords and need to know what you can still do.">No Creds</label></li>
+	
+    </ul>
+
+    <input id="bin-search" type="text" placeholder="Search among 16 commands: &lt;command&gt; +&lt;filter&gt; ..." />
+</div>
+
+<div id="bin-table-wrapper">
+    <table id="bin-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Dementor/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 dementor.py -u john -p password123 -d test.local 10.10.10.2 10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#RPC">RPC</a></li>
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Evil-WinRM/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+evil-winrm -i 10.10.10.1 -u john -p password123
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-DCOMExec/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 dcomexec.py -object MMC20 test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#DCOM">DCOM</a></li>
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-GetUserSPNs/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 GetUserSPNs.py test.local/john:password123 -dc-ip 10.10.10.1 -request
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-LookUpSID/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 lookupsid.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#RPC">RPC</a></li>
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-Mimikatz/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 mimikatz.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-NTLMRelayX/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c &#39;whoami /all&#39; -debug
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX/#No_Creds">No Creds</a></li>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-PsExec/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 psexec.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-RPCDump/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 rpcdump.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#RPC">RPC</a></li>
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-Reg/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 reg.py test.local/john:password123@10.10.10.1 query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-SAMRDump/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 samrdump.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#RPC">RPC</a></li>
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-SMBClient/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 smbclient.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-SMBExec/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 smbexec.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-SecretsDump/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 secretsdump.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-Services/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 services.py test.local/john:password123@10.10.10.1 list
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#RPC">RPC</a></li>
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><a href="/wadcoms/Impacket-WMIExec/" style="text-decoration: none; color: DarkGreen;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 wmiexec.py test.local/john:password123@10.10.10.1
+
+
+</a></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Username">Username</a></li>
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Password">Password</a></li>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr><td id="search-message" colspan="2">No binary matches...</td></tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+
+ function handleChange(checkbox, label) {
+	 if (checkbox.checked == true) {
+		 //console.log(label);
+		 document.getElementById(label).className = 'match';
+		 document.getElementById(label + "_label").innerText = label + "✓";
+		 var slash = window.location.href.lastIndexOf("/");
+		 if (window.location.href[slash+1] == "#") {
+		     window.location.href+='+' + label
+		 } else {
+		     window.location.href+='#+' + label
+		 }
+	 } else {
+		 document.getElementById(label).className = "";
+		 document.getElementById(label + "_label").innerText = label;
+		 label = label.replace(" ", "%20");
+		 var new_href = window.location.href.replace("+"+label, "");
+		 window.location.href = new_href;
+		 if (window.location.hash == "") {
+			 document.getElementById("bin-search").value = "";
+		 }
+	 }
+ }
+
+ function filter(query) {
+     var queryArray = query.toLowerCase().trim().split(/ *\+/);
+     var binPattern = queryArray[0];
+     var functionPatterns = queryArray.splice(1);
+
+     // filter rows
+     var noResults = true;
+
+     var allFilters = document.getElementsByName("filter_name");
+     var allFilters_parsed = [];
+     allFilters.forEach((f) => {
+	     allFilters_parsed.push(f.id.toLowerCase());
+     });
+     var filter_chosen = functionPatterns.filter(element => allFilters_parsed.includes(element));
+     filter_chosen.forEach((f) => {
+	     console.log("filter_chosen: " + f);
+     });
+
+     document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
+         var show = true;
+
+         var binName = row.children[0].firstElementChild.innerText.toLowerCase();
+	     
+         var functionElems = Array.from(row.children[0].childNodes[2].children);
+	 
+         if (show) {
+             functionElems.forEach((item) => {
+                 item.className = '';
+             });
+	     functionElems.forEach((item) => {
+		 //console.log("current item is " + item.innerText);
+	         let siblings = [];
+		 if (item.parentNode) {
+		     let sibling = item.parentNode.firstChild;
+		     while (sibling) {
+		         if (sibling.nodeType == 1 && sibling !== item) {
+			     siblings.push(sibling);
+			 }
+			     sibling = sibling.nextSibling;
+		     }
+		     for (i = 0; i < siblings.length; i++ ) {
+			 //console.log("current sibling is " + siblings[i].innerText);
+		         var found = false;
+			 functionPatterns.forEach((pattern) => {
+		             //console.log("Pattern: " + pattern);
+			     if (!pattern) {
+			         return;
+			     }
+					 
+			     if (siblings[i].innerText.toLowerCase().startsWith(pattern.toLowerCase())) {
+			         found = true;
+			     }
+			 });
+			 if (found) {
+			     //console.log("found in " + siblings[i].innerText);
+	                     siblings[i].className = 'match';
+			 }
+		     }
+		     functionPatterns.forEach((p) => {
+			     if (!p) {
+				     return;
+			     }
+
+			     if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
+				     //console.log("Parent matches!");
+				     item.className = 'match';
+			     }
+		     });
+
+		 }
+	     });
+
+         }
+	 var filled = true;
+	 var found_binName = false;
+         if (binName.indexOf(binPattern) !== -1) {
+		 found_binName = true;
+	 }
+
+	 functionElems.forEach((i) => {
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "username" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "password" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "no creds" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	 });
+	 var found_filter = true;
+	 if (filter_chosen.length !== 0) {
+		 found_filter = false;
+		 filter_chosen.forEach((f) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == f) {
+					 found_filter = true;
+				 }
+			 });
+		 });
+	 }
+					 
+
+	 if (!filled && functionPatterns.length != 0 || !found_binName || !found_filter) {
+	     //console.log("not filled");
+	     row.style.display = 'none';
+	 } else {
+	     row.style.display = '';
+	     noResults = false;
+	     //console.log("filled! " + row.style.display);
+	 }
+     });
+
+     // update the search message visibility
+     var searchMessage = document.getElementById('search-message');
+     searchMessage.style.display = noResults ? 'table-cell' : 'none';
+ }
+
+ function applyFilter() {
+     // filter on load according to the URL
+     var searchBox = document.getElementById('bin-search');
+     var query = decodeURIComponent(location.hash.slice(1));
+     filter(query);
+     if (query) {
+         searchBox.value = query;
+     }
+ }
+
+ function setup() {
+     var searchBox = document.getElementById('bin-search');
+
+     // ensure height during filtering
+     var binTableWrapper = document.getElementById('bin-table-wrapper');
+     binTableWrapper.style.height = binTableWrapper.clientHeight + 'px';
+
+     // handle user input
+     searchBox.addEventListener('input', function () {
+         var query = searchBox.value;
+         history.replaceState(null, null, encodeURI('#' + query));
+         applyFilter();
+     });
+
+     // handle shortcuts
+     addEventListener('keydown', function (event) {
+         // focus search box on valid keydown
+         if (event.key.toLowerCase().match(/^[+a-z]$/) &&
+             !(event.ctrlKey || event.altKey || event.metaKey)) {
+             searchBox.focus();
+             searchBox.parentElement.scrollIntoView();
+         }
+         // clear filter on escape
+         else if (event.key === 'Escape') {
+             location.hash = searchBox.value = '';
+             searchBox.focus();
+             searchBox.parentElement.scrollIntoView();
+         }
+     });
+
+     // handle URL changes
+     window.onhashchange = applyFilter;
+
+     // trigger filter on page load
+     applyFilter();
+ }
+
+ setup();
+</script>
+
+:ET

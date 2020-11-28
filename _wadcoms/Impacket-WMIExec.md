@@ -11,13 +11,14 @@ description: |
   	Username: john
 
   	Password: password123
-functions:
+items:
   Password:
     - code: |
         python3 wmiexec.py test.local/john:password123@10.10.10.1
   Username:
     - code: |
         empty
+filters:
   WMI:
     - code: |
         empty

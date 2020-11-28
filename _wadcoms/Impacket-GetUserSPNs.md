@@ -12,13 +12,14 @@ description: |
 
   	Password: password123
 
-functions:
+items:
   Password:
     - code: |
         python3 GetUserSPNs.py test.local/john:password123 -dc-ip 10.10.10.1 -request
   Username:
     - code: |
         empty
+filters:
   Kerberos:
     - code: |
         empty

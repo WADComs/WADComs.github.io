@@ -12,13 +12,14 @@ description: |
 
   	Password: password123
 
-functions:
+items:
   Password:
     - code: |
         python3 secretsdump.py test.local/john:password123@10.10.10.1
   Username:
     - code: |
         empty
+filters:
   Kerberos:
     - code: |
         empty

@@ -6,12 +6,22 @@
 </style>
 
 <div id="bin-search-wrapper">
-    <ul id="bin-search-filters" class="function-list">
-        {% for function_pair in site.data.functions %}
-        {% assign function_id = function_pair[0] %}
-        {% assign function = function_pair[1] %}
-	<li><input type="checkbox" id="{{ function.label }}" onclick='handleChange(this, "{{ function.label }}");'><label for="{{ function.label }}" data-title="{{ function.description | replace: '\n', ' ' }}">{{ function.label }}</label></li>
+
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>Filters:</h3>
+        {% for filter_pair in site.data.filters %}
+        {% assign filter_id = filter_pair[0] %}
+        {% assign filter = filter_pair[1] %}
+	<li><input type="checkbox" id="{{ filter.label }}" name="filter_name" onclick='handleChange(this, "{{ filter.label }}");'><label id="{{ filter.label }}_label" for="{{ filter.label }}" data-title="{{ filter.description | replace: '\n', ' ' }}">{{ filter.label }}</label></li>
         {% endfor %}
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>What you have:</h3>
+	{% for item_pair in site.data.items %}
+	{% assign item_id = item_pair[0] %}
+	{% assign item = item_pair[1] %}
+	<li><input type="checkbox" id="{{ item.label }}" onclick='handleChange(this, "{{ item.label }}");'><label id="{{ item.label }}_label" for="{{ item.label }}" data-title="{{ item.description | replace: '\n', ' ' }}">{{ item.label }}</label></li>
+	{% endfor %}
     </ul>
 
     <input id="bin-search" type="text" placeholder="Search among {{ site.wadcoms | size }} commands: <command> +<filter> ..."/>
@@ -27,10 +37,9 @@
         <tbody>
             {% for file in site.wadcoms %}
             <tr>
-		    <td><div class="bin-name"><a href="{{ file.url }}" style="text-decoration: none;">{% include get_code.html page_test=file %}</a></div><p style="margin-top: -12px;">{% include function_list.html bin=file %}</p></td>
+		    <td><div class="bin-name"><a href="{{ file.url }}" style="text-decoration: none; color: DarkGreen;">{% include get_code.html page_test=file %}</a></div><p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p></td>
             </tr>
             {% endfor %}
-	    <!--{% include get_bin_name path=file.path %}-->
         </tbody>
         <tfoot>
             <tr><td id="search-message" colspan="2">No binary matches...</td></tr>
@@ -42,8 +51,9 @@
 
  function handleChange(checkbox, label) {
 	 if (checkbox.checked == true) {
-		 console.log(label);
+		 //console.log(label);
 		 document.getElementById(label).className = 'match';
+		 document.getElementById(label + "_label").innerText = label + "✓";
 		 var slash = window.location.href.lastIndexOf("/");
 		 if (window.location.href[slash+1] == "#") {
 		     window.location.href+='+' + label
@@ -52,6 +62,7 @@
 		 }
 	 } else {
 		 document.getElementById(label).className = "";
+		 document.getElementById(label + "_label").innerText = label;
 		 label = label.replace(" ", "%20");
 		 var new_href = window.location.href.replace("+"+label, "");
 		 window.location.href = new_href;
@@ -68,6 +79,17 @@
 
      // filter rows
      var noResults = true;
+
+     var allFilters = document.getElementsByName("filter_name");
+     var allFilters_parsed = [];
+     allFilters.forEach((f) => {
+	     allFilters_parsed.push(f.id.toLowerCase());
+     });
+     var filter_chosen = functionPatterns.filter(element => allFilters_parsed.includes(element));
+     filter_chosen.forEach((f) => {
+	     console.log("filter_chosen: " + f);
+     });
+
      document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
          var show = true;
 
@@ -80,7 +102,7 @@
                  item.className = '';
              });
 	     functionElems.forEach((item) => {
-		 console.log("current item is " + item.innerText);
+		 //console.log("current item is " + item.innerText);
 	         let siblings = [];
 		 if (item.parentNode) {
 		     let sibling = item.parentNode.firstChild;
@@ -91,10 +113,10 @@
 			     sibling = sibling.nextSibling;
 		     }
 		     for (i = 0; i < siblings.length; i++ ) {
-			 console.log("current sibling is " + siblings[i].innerText);
+			 //console.log("current sibling is " + siblings[i].innerText);
 		         var found = false;
 			 functionPatterns.forEach((pattern) => {
-		             console.log("Pattern: " + pattern);
+		             //console.log("Pattern: " + pattern);
 			     if (!pattern) {
 			         return;
 			     }
@@ -104,7 +126,7 @@
 			     }
 			 });
 			 if (found) {
-			     console.log("found in " + siblings[i].innerText);
+			     //console.log("found in " + siblings[i].innerText);
 	                     siblings[i].className = 'match';
 			 }
 		     }
@@ -114,7 +136,7 @@
 			     }
 
 			     if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
-				     console.log("Parent matches!");
+				     //console.log("Parent matches!");
 				     item.className = 'match';
 			     }
 		     });
@@ -130,17 +152,36 @@
 	 }
 
 	 functionElems.forEach((i) => {
-	     if (i.className !== "match") {
+	     {% for item_pair in site.data.items %}
+	     {% assign item_id = item_pair[0] %}
+	     {% assign item = item_pair[1] %}
+	     
+		 if (i.innerText.toLowerCase() == "{{ item.label | downcase }}" && i.className !== "match") {
 	         filled = false;
 	     }
+
+	     {% endfor %}
 	 });
-	 if (!filled && functionPatterns.length != 0 || !found_binName) {
-	     console.log("not filled");
+	 var found_filter = true;
+	 if (filter_chosen.length !== 0) {
+		 found_filter = false;
+		 filter_chosen.forEach((f) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == f) {
+					 found_filter = true;
+				 }
+			 });
+		 });
+	 }
+					 
+
+	 if (!filled && functionPatterns.length != 0 || !found_binName || !found_filter) {
+	     //console.log("not filled");
 	     row.style.display = 'none';
 	 } else {
 	     row.style.display = '';
 	     noResults = false;
-	     console.log("filled! " + row.style.display);
+	     //console.log("filled! " + row.style.display);
 	 }
      });
 

@@ -1,0 +1,15 @@
+I"è<p>Impacket‚Äôs services.py communicates with Windows services using the MSRPC interface. It can perform many different actions on any service.</p>
+
+<p>Command Reference:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Target IP: 10.10.10.1
+
+Domain: test.local
+
+Username: john
+
+Password: password123
+
+Action: list
+</code></pre></div></div>
+:ET

@@ -1,0 +1,13 @@
+I"g<p>Impacket’s reg.py is a remote registry manipulation tool, providing similar functionality to reg.exe in Windows.</p>
+
+<p>Command Reference:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Target IP: 10.10.10.1
+
+Domain: test.local
+
+Username: john
+
+Password: password123
+</code></pre></div></div>
+:ET

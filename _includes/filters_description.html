@@ -1,0 +1,7 @@
+<dl>
+    {% for filter_pair in site.data.filters %}
+    {% assign filter = filter_pair[1] %}
+    <dt class="filter-name">{{ filter.label }}</dt>
+    <dd>{{ filter.description | markdownify }}</dd>
+    {% endfor %}
+</dl>

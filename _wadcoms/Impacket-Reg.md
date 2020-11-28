@@ -12,13 +12,14 @@ description: |
 
   	Password: password123
 
-functions:
+items:
   Password:
     - code: |
         python3 reg.py test.local/john:password123@10.10.10.1 query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
   Username:
     - code: |
         empty
+filters:
   SMB:
     - code: |
         empty

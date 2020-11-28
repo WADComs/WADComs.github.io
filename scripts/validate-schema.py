@@ -10,7 +10,7 @@ def parse_yaml(path):
         return yaml.load_all(text, Loader=yaml.SafeLoader)
 
 def build_schema():
-    function_names = next(parse_yaml('_data/functions.yml')).keys()
+    filter_names = next(parse_yaml('_data/filters.yml')).keys()
     return {
         "definitions": {
             'examples': {
@@ -29,15 +29,15 @@ def build_schema():
         'type': 'object',
         'properties': {
             'description': {'type': 'string'},
-            'functions': {
+            'filters': {
                 'type': 'object',
                 "patternProperties": {
-                    '^({})$'.format('|'.join(function_names)): {'$ref': '#/definitions/examples'}
+                    '^({})$'.format('|'.join(filter_names)): {'$ref': '#/definitions/examples'}
                 },
                 'additionalProperties': False
             }
         },
-        'required': ['functions'],
+        'required': ['filters'],
         'additionalProperties': False
     }
 
