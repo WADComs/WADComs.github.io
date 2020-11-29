@@ -37,7 +37,7 @@
         <tbody>
             {% for file in site.wadcoms %}
             <tr>
-		    <td><div class="bin-name"><a href="{{ file.url }}" style="text-decoration: none; color: DarkGreen;">{% include get_code.html page_test=file %}</a></div><p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p></td>
+		    <td><div class="bin-name"><a href="{{ file.url }}" id="{{ file.url }}" style="text-decoration: none; color: DarkGreen;">{% include get_code.html page_test=file %}</a><a href="javascript:void(0)" onClick="copyFunction('{{ file.url }}')" style="float: right;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="{{ file.url }}_img"/></a></div><p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -48,6 +48,18 @@
 </div>
 
 <script>
+
+ function copyFunction(file_url) {
+	 var copyCommand = document.getElementById(file_url);
+
+	 navigator.clipboard.writeText(copyCommand.innerText).then(() => {
+		 document.getElementById(file_url + "_img").alt = "Copied";
+		 document.getElementById(file_url + "_img").title = "Copied";
+	 }, () => {
+		 console.log("copy failed");
+	 });
+
+ }
 
  function handleChange(checkbox, label) {
 	 if (checkbox.checked == true) {
