@@ -20,7 +20,7 @@
 	{% for item_pair in site.data.items %}
 	{% assign item_id = item_pair[0] %}
 	{% assign item = item_pair[1] %}
-	<li><input type="checkbox" id="{{ item.label }}" onclick='handleChange(this, "{{ item.label }}");'><label id="{{ item.label }}_label" for="{{ item.label }}" data-title="{{ item.description | replace: '\n', ' ' }}">{{ item.label }}</label></li>
+	<li><input type="checkbox" id="{{ item.label }}" name="item_name" onclick='handleChange(this, "{{ item.label }}");'><label id="{{ item.label }}_label" for="{{ item.label }}" data-title="{{ item.description | replace: '\n', ' ' }}">{{ item.label }}</label></li>
 	{% endfor %}
     </ul>
 
@@ -51,7 +51,6 @@
 
  function handleChange(checkbox, label) {
 	 if (checkbox.checked == true) {
-		 //console.log(label);
 		 document.getElementById(label).className = 'match';
 		 document.getElementById(label + "_label").innerText = label + "✓";
 		 var slash = window.location.href.lastIndexOf("/");
@@ -80,15 +79,18 @@
      // filter rows
      var noResults = true;
 
+     var allItems = document.getElementsByName("item_name");
      var allFilters = document.getElementsByName("filter_name");
+     var allItems_parsed = [];
      var allFilters_parsed = [];
      allFilters.forEach((f) => {
 	     allFilters_parsed.push(f.id.toLowerCase());
      });
      var filter_chosen = functionPatterns.filter(element => allFilters_parsed.includes(element));
-     filter_chosen.forEach((f) => {
-	     console.log("filter_chosen: " + f);
+     allItems.forEach((i) => {
+	     allItems_parsed.push(i.id.toLowerCase());
      });
+     var item_chosen = functionPatterns.filter(element => allItems_parsed.includes(element));
 
      document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
          var show = true;
@@ -102,7 +104,6 @@
                  item.className = '';
              });
 	     functionElems.forEach((item) => {
-		 //console.log("current item is " + item.innerText);
 	         let siblings = [];
 		 if (item.parentNode) {
 		     let sibling = item.parentNode.firstChild;
@@ -113,10 +114,8 @@
 			     sibling = sibling.nextSibling;
 		     }
 		     for (i = 0; i < siblings.length; i++ ) {
-			 //console.log("current sibling is " + siblings[i].innerText);
 		         var found = false;
 			 functionPatterns.forEach((pattern) => {
-		             //console.log("Pattern: " + pattern);
 			     if (!pattern) {
 			         return;
 			     }
@@ -126,7 +125,6 @@
 			     }
 			 });
 			 if (found) {
-			     //console.log("found in " + siblings[i].innerText);
 	                     siblings[i].className = 'match';
 			 }
 		     }
@@ -136,7 +134,6 @@
 			     }
 
 			     if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
-				     //console.log("Parent matches!");
 				     item.className = 'match';
 			     }
 		     });
@@ -162,7 +159,7 @@
 
 	     {% endfor %}
 	 });
-	 var found_filter = true;
+	 var found_filter = false;
 	 if (filter_chosen.length !== 0) {
 		 found_filter = false;
 		 filter_chosen.forEach((f) => {
@@ -175,13 +172,11 @@
 	 }
 					 
 
-	 if (!filled && functionPatterns.length != 0 || !found_binName || !found_filter) {
-	     //console.log("not filled");
+	 if (!filled && (functionPatterns.length != 0 && !found_filter) || !found_binName || (found_filter && !filled && item_chosen.length !== 0) || (!found_filter && filled && filter_chosen.length !== 0)) {
 	     row.style.display = 'none';
 	 } else {
 	     row.style.display = '';
 	     noResults = false;
-	     //console.log("filled! " + row.style.display);
 	 }
      });
 
