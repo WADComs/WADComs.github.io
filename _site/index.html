@@ -1201,7 +1201,7 @@ python3 wmiexec.py test.local/john:password123@10.10.10.1
 	 }
 					 
 
-	 if (!filled && functionPatterns.length != 0 || !found_binName || !found_filter) {
+	 if (!filled && functionPatterns.length != 0 && !found_binName && !found_filter) {
 	     //console.log("not filled");
 	     row.style.display = 'none';
 	 } else {
