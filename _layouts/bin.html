@@ -21,10 +21,24 @@ Command:
 {% assign code_es = examples.first.code | escape | strip_newlines %}
 {% if code_es != "empty" %}
     <li>
-        <pre><code>{{ examples.first.code | escape }}</code></pre>
+	<pre><code id="code_text">{{ examples.first.code | escape | strip_newlines }}<a href="javascript:void(0)" onClick="copyFunction_com()" style="float: right; margin-bottom: -5px;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="code_img"/></a></code></pre>
     </li>
 {% break %}
 {% endif %}
 
 </ul>
 {% endfor %}
+
+<script>
+
+function copyFunction_com() {
+	 var copyCommand = document.getElementById("code_text");
+
+	 navigator.clipboard.writeText(copyCommand.innerText).then(() => {
+		 document.getElementById("code_img").alt = "Copied";
+		 document.getElementById("code_img").title = "Copied";
+	 }, () => {
+		 console.log("copy failed");
+	 });
+}
+</script>

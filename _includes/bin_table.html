@@ -53,6 +53,10 @@
 	 var copyCommand = document.getElementById(file_url);
 
 	 navigator.clipboard.writeText(copyCommand.innerText).then(() => {
+		 {% for file in site.wadcoms %}
+		 document.getElementById("{{ file.url }}_img").alt = "Copy";
+		 document.getElementById("{{ file.url }}_img").title = "Copy";
+		 {% endfor %}
 		 document.getElementById(file_url + "_img").alt = "Copied";
 		 document.getElementById(file_url + "_img").title = "Copied";
 	 }, () => {
