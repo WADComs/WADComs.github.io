@@ -20,3 +20,11 @@ Kerberos:
 RPC:
   label: RPC
   description: You've found the RPC service open and need to know what you can do with it.
+
+Linux:
+  label: Linux
+  description: Command can be run on Linux.
+
+Windows:
+  label: Windows
+  description: Command can be run on Windows.

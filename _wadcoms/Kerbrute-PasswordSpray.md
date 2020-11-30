@@ -12,9 +12,15 @@ description: |
 items:
   Password:
     - code: |
-        kerbrute_linux_amd64 passwordspray -d test.local domain_users.txt password123
+        kerbrute passwordspray -d test.local domain_users.txt password123
 filters:
   Kerberos:
+    - code: |
+        empty
+  Linux:
+    - code: |
+        empty
+  Windows:
     - code: |
         empty
 ---

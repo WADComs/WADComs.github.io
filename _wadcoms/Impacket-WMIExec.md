@@ -22,4 +22,10 @@ filters:
   WMI:
     - code: |
         empty
+  Linux:
+    - code: |
+        empty
+  Windows:
+    - code: |
+        empty
 ---

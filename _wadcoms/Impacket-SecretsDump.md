@@ -23,4 +23,10 @@ filters:
   Kerberos:
     - code: |
         empty
+  Linux:
+    - code: |
+        empty
+  Windows:
+    - code: |
+        empty
 ---

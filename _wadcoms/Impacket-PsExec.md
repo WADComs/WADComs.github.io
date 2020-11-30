@@ -22,4 +22,10 @@ filters:
   SMB:
     - code: |
         empty
+  Linux:
+    - code: |
+        empty
+  Windows:
+    - code: |
+        empty
 ---

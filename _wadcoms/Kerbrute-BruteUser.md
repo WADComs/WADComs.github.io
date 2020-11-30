@@ -12,9 +12,15 @@ description: |
 items:
   Username:
     - code: |
-        kerbrute_linux_amd64 bruteuser -d test.local passwords.txt john
+        kerbrute bruteuser -d test.local passwords.txt john
 filters:
   Kerberos:
+    - code: |
+        empty
+  Linux:
+    - code: |
+        empty
+  Windows:
     - code: |
         empty
 ---

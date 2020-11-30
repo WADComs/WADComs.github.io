@@ -15,4 +15,7 @@ filters:
   Kerberos:
     - code: |
         empty
+  Linux:
+    - code: |
+        empty
 ---

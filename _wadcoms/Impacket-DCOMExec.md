@@ -26,4 +26,10 @@ filters:
   DCOM:
     - code: |
         empty
+  Linux:
+    - code: |
+        empty
+  Windows:
+    - code: |
+        empty
 ---

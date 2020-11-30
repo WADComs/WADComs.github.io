@@ -12,3 +12,7 @@ Password:
 No_Creds:
   label: No Creds
   description: You don't have any usernames or passwords and need to know what you can still do.
+
+Hash:
+  label: Hash
+  description: You've found hash(es) and need to know what you can do with them.

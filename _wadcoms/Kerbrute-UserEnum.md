@@ -10,9 +10,15 @@ description: |
 items:
   No_Creds:
     - code: |
-        kerbrute_linux_amd64 userenum -d test.local usernames.txt
+        kerbrute userenum -d test.local usernames.txt
 filters:
   Kerberos:
+    - code: |
+        empty
+  Linux:
+    - code: |
+        empty
+  Windows:
     - code: |
         empty
 ---
