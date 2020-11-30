@@ -15,7 +15,7 @@ description: Description of what the command does.
 
   Command Reference:
 
-  	Target IP: 10.0.0.1
+  	Target IP: 10.10.10.1
 
   	Domain: test.local
 
