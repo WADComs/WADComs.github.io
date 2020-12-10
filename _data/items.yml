@@ -1,6 +1,4 @@
 ---
-# this is the rendering order of items
-
 Username:
   label: Username
   description: You've found username(s) and need to know what you can do with them.

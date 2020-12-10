@@ -12,24 +12,16 @@ description: |
 
   	Password: password123
 
+command: |
+  python3 GetADUsers.py -all test.local/john:password123 -dc-ip 10.10.10.1
 items:
-  Username:
-    - code: |
-        python3 GetADUsers.py -all test.local/john:password123 -dc-ip 10.10.10.1
-  Password:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Enumeration:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Username
+  - Password
+services:
+  - Kerberos
+attack_types:
+  - Enumeration
+OS:
+  - Linux
+  - Windows
 ---

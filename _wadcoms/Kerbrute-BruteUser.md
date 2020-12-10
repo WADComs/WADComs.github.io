@@ -9,18 +9,15 @@ description: |
   	Password List: passwords.txt
 
   	Username: john
+command: |
+  kerbrute bruteuser -d test.local passwords.txt john
 items:
-  Username:
-    - code: |
-        kerbrute bruteuser -d test.local passwords.txt john
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Username
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

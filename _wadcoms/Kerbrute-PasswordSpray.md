@@ -9,18 +9,15 @@ description: |
   	Username List: domain_users.txt
 
   	Password: password123
+command: |
+  kerbrute passwordspray -d test.local domain_users.txt password123
 items:
-  Password:
-    - code: |
-        kerbrute passwordspray -d test.local domain_users.txt password123
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

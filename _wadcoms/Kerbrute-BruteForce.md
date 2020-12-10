@@ -7,15 +7,14 @@ description: |
   	Domain: test.local
 
   	Credential List: credentials.txt
+command: |
+  cat credentials.txt | kerbrute_linux_amd64 -d test.local bruteforce -
 items:
-  No_Creds:
-    - code: |
-        cat credentials.txt | kerbrute_linux_amd64 -d test.local bruteforce -
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
+  - No_Creds
+services:
+  - Kerberos
+OS:
+  - Linux
+attack_types:
+  - Enumeration
 ---

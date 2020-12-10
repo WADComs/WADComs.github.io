@@ -6,15 +6,14 @@ description: |
 
   	Domain: test.local
 
+command: |
+  ldapsearch -LLL -x -H ldap://test.local -b'' -s base '(objectclass=\*)'
 items:
-  No_Creds:
-    - code: |
-        ldapsearch -LLL -x -H ldap://test.local -b'' -s base '(objectclass=*)'
-filters:
-  LDAP:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
+  - No_Creds
+services:
+  - LDAP
+OS:
+  - Linux
+attack_types:
+  - Enumeration
 ---

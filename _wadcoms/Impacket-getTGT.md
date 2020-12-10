@@ -12,21 +12,16 @@ description: |
 
   	Hash: 2a3de7fe356ee524cc9f3d579f2e0aa7
 
+command: |
+  python3 getTGT.py test.local/john -dc-ip 10.10.10.1 -hashes :2a3de7fe356ee524cc9f3d579f2e0aa7
 items:
-  Hash:
-    - code: |
-        python3 getTGT.py test.local/john -dc-ip 10.10.10.1 -hashes :2a3de7fe356ee524cc9f3d579f2e0aa7
-  Username:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Hash
+  - Username
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

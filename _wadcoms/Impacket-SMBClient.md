@@ -12,21 +12,16 @@ description: |
 
   	Password: password123
 
+command: |
+  python3 smbclient.py test.local/john:password123@10.10.10.1
 items:
-  Password:
-    - code: |
-        python3 smbclient.py test.local/john:password123@10.10.10.1
-  Username:
-    - code: |
-        empty
-filters:
-  SMB:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - SMB
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

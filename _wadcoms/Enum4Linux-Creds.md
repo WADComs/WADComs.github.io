@@ -10,18 +10,13 @@ description: |
 
   	Password: password123
 
+command: |
+  enum4linux -u john -p password123 -a 10.10.10.1
 items:
-  Username:
-    - code: |
-        enum4linux -u john -p password123 -a 10.10.10.1
-  Password:
-    - code: |
-        empty
-filters:
-  Enumeration:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
+  - Username
+  - Password
+attack_types:
+  - Enumeration
+OS:
+  - Linux
 ---

@@ -12,21 +12,16 @@ description: |
 
   	Password: password123
 
+command: |
+  python3 GetUserSPNs.py test.local/john:password123 -dc-ip 10.10.10.1 -request
 items:
-  Password:
-    - code: |
-        python3 GetUserSPNs.py test.local/john:password123 -dc-ip 10.10.10.1 -request
-  Username:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

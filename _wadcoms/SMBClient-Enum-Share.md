@@ -14,20 +14,15 @@ description: |
 
   	Password: password123
 
+command: |
+  smbclient \\\\test.local\\C$ -I 10.10.10.1 -U john password123
 items:
-  Username:
-    - code: |
-        smbclient \\\\test.local\\C$ -I 10.10.10.1 -U john password123
-  Password:
-    - code: |
-        empty
-filters:
-  Enumeration:
-    - code: |
-        empty
-  SMB:
-    - code: |
-  Linux:
-    - code: |
-        empty
+  - Username
+  - Password
+services:
+  - SMB
+OS:
+  - Linux
+attack_types:
+  - Enumeration
 ---

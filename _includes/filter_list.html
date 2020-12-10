@@ -1,15 +1,33 @@
 <ul class="filter-list">
+    {% for attack_pair in site.data.attack_types %}
+    {% assign attack_id = attack_pair[0] %}
+    {% assign attack = attack_pair[1] %}
+    {% if include.bin.attack_types contains attack_id %}
+    <li><a href="{{ include.bin.url }}#{{ attack_id }}">{{ attack.label }}</a></li>
+    {% endif %}
+    {% endfor %}
+
     {% for item_pair in site.data.items %}
     {% assign item_id = item_pair[0] %}
     {% assign item = item_pair[1] %}
-    {% unless include.bin.items[item_id] %}{% continue %}{% endunless %}
+    {% if include.bin.items contains item_id %}
     <li><a href="{{ include.bin.url }}#{{ item_id }}">{{ item.label }}</a></li>
+    {% endif %}
     {% endfor %}
 
-    {% for filter_pair in site.data.filters %}
-    {% assign filter_id = filter_pair[0] %}
-    {% assign filter = filter_pair[1] %}
-    {% unless include.bin.filters[filter_id] %}{% continue %}{% endunless %}
-    <li><a href="{{ include.bin.url }}#{{ filter_id }}">{{ filter.label }}</a></li>
+    {% for service_pair in site.data.services %}
+    {% assign service_id = service_pair[0] %}
+    {% assign service = service_pair[1] %}
+    {% if include.bin.services contains service_id %}
+    <li><a href="{{ include.bin.url }}#{{ service_id }}">{{ service.label }}</a></li>
+    {% endif %}
+    {% endfor %}
+
+    {% for OS_pair in site.data.OS %}
+    {% assign OS_id = OS_pair[0] %}
+    {% assign OS = OS_pair[1] %}
+    {% if include.bin.OS contains OS_id %}
+    <li><a href="{{ include.bin.url }}#{{ OS_id }}">{{ OS.label }}</a></li>
+    {% endif %}
     {% endfor %}
 </ul>

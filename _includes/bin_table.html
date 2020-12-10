@@ -8,14 +8,6 @@
 <div id="bin-search-wrapper">
 
     <ul id="bin-search-filters" class="filter-list">
-	<h3>Filters:</h3>
-        {% for filter_pair in site.data.filters %}
-        {% assign filter_id = filter_pair[0] %}
-        {% assign filter = filter_pair[1] %}
-	<li><input type="checkbox" id="{{ filter.label }}" name="filter_name" onclick='handleChange(this, "{{ filter.label }}");'><label id="{{ filter.label }}_label" for="{{ filter.label }}" data-title="{{ filter.description | replace: '\n', ' ' }}">{{ filter.label }}</label></li>
-        {% endfor %}
-    </ul>
-    <ul id="bin-search-filters" class="filter-list">
 	<h3>What you have:</h3>
 	{% for item_pair in site.data.items %}
 	{% assign item_id = item_pair[0] %}
@@ -23,9 +15,33 @@
 	<li><input type="checkbox" id="{{ item.label }}" name="item_name" onclick='handleChange(this, "{{ item.label }}");'><label id="{{ item.label }}_label" for="{{ item.label }}" data-title="{{ item.description | replace: '\n', ' ' }}">{{ item.label }}</label></li>
 	{% endfor %}
     </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>Services:</h3>
+        {% for service_pair in site.data.services %}
+        {% assign service_id = service_pair[0] %}
+        {% assign service = service_pair[1] %}
+	<li><input type="checkbox" id="{{ service.label }}" name="service_name" onclick='handleChange(this, "{{ service.label }}");'><label id="{{ service.label }}_label" for="{{ service.label }}" data-title="{{ service.description | replace: '\n', ' ' }}">{{ service.label }}</label></li>
+        {% endfor %}
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>Attack Type:</h3>
+	{% for attack_pair in site.data.attack_types %}
+	{% assign attack_id = attack_pair[0] %}
+	{% assign attack = attack_pair[1] %}
+	<li><input type="checkbox" id="{{ attack.label }}" name="attack_name" onclick='handleChange(this, "{{ attack.label }}");'><label id="{{ attack.label }}_label" for="{{ attack.label }}" data-title="{{ attack.description | replace: '\n', ' ' }}">{{ attack.label }}</label></li>
+	{% endfor %}
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>OS:</h3>
+	{% for OS_pair in site.data.OS %}
+	{% assign OS_id = OS_pair[0] %}
+	{% assign OS = OS_pair[1] %}
+	<li><input type="checkbox" id="{{ OS.label }}" name="OS_name" onclick='handleChange(this, "{{ OS.label }}");'><label id="{{ OS.label }}_label" for="{{ OS.label }}" data-title="{{ OS.description | replace: '\n', ' ' }}">{{ OS.label }}</label></li>
+	{% endfor %}
+    </ul>
 
-    <input id="bin-search" type="text" placeholder="Search among {{ site.wadcoms | size }} commands: <command> +<filter> ..."/>
 </div>
+<input id="bin-search" type="text" placeholder="Search among {{ site.wadcoms | size }} commands: <command> +<filter> ..."/>
 
 <div id="bin-table-wrapper">
     <table id="bin-table">
@@ -37,7 +53,7 @@
         <tbody>
             {% for file in site.wadcoms %}
             <tr>
-		    <td><div class="bin-name"><a href="{{ file.url }}" id="{{ file.url }}" style="text-decoration: none; color: DarkGreen;">{% include get_code.html page_test=file %}</a><a href="javascript:void(0)" onClick="copyFunction('{{ file.url }}')" style="float: right;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="{{ file.url }}_img"/></a></div><p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p></td>
+		    <td><div class="bin-name"><a href="{{ file.url }}" id="{{ file.url }}" style="text-decoration: none; color: DarkGreen;">{{ file.command }}</a><a href="javascript:void(0)" onClick="copyFunction('{{ file.url }}')" style="float: right;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="{{ file.url }}_img"/></a></div><p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -96,9 +112,14 @@
      var noResults = true;
 
      var allItems = document.getElementsByName("item_name");
-     var allFilters = document.getElementsByName("filter_name");
+     var allFilters = document.getElementsByName("service_name");
+     var allAttacks = document.getElementsByName("attack_name");
+     var allOS = document.getElementsByName("OS_name");
      var allItems_parsed = [];
      var allFilters_parsed = [];
+     var allAttacks_parsed = []; 
+     var allOS_parsed = []; 
+
      allFilters.forEach((f) => {
 	     allFilters_parsed.push(f.id.toLowerCase());
      });
@@ -107,6 +128,14 @@
 	     allItems_parsed.push(i.id.toLowerCase());
      });
      var item_chosen = functionPatterns.filter(element => allItems_parsed.includes(element));
+     allAttacks.forEach((a) => {
+	     allAttacks_parsed.push(a.id.toLowerCase());
+     });
+     var attack_chosen = functionPatterns.filter(element => allAttacks_parsed.includes(element));
+     allOS.forEach((o) => {
+	     allOS_parsed.push(o.id.toLowerCase());
+     });
+     var os_chosen = functionPatterns.filter(element => allOS_parsed.includes(element));
 
      document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
          var show = true;
@@ -160,7 +189,7 @@
          }
 	 var filled = true;
 	 var found_binName = false;
-         if (binName.indexOf(binPattern) !== -1) {
+         if (binName.indexOf(binPattern) !== -1 && binPattern.length !== 0) {
 		 found_binName = true;
 	 }
 
@@ -175,25 +204,55 @@
 
 	     {% endfor %}
 	 });
-	 var found_filter = false;
+
+	 var found_filter = -1;
 	 if (filter_chosen.length !== 0) {
-		 found_filter = false;
+		 found_filter = 0;
 		 filter_chosen.forEach((f) => {
 			 functionElems.forEach((i) => {
 				 if (i.innerText.toLowerCase() == f) {
-					 found_filter = true;
+					 found_filter = found_filter + 1;
+				 }
+			 });
+		 });
+	 }
+
+	 var found_attack = -1;
+	 if (attack_chosen.length !== 0) {
+		 found_attack = 0;
+		 attack_chosen.forEach((a) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == a) {
+					 found_attack = found_attack + 1;
 				 }
 			 });
 		 });
 	 }
 					 
-
-	 if (!filled && (functionPatterns.length != 0 && !found_filter) || !found_binName || (found_filter && !filled && item_chosen.length !== 0) || (!found_filter && filled && filter_chosen.length !== 0)) {
-	     row.style.display = 'none';
-	 } else {
-	     row.style.display = '';
-	     noResults = false;
+	 var found_os = -1;
+	 if (os_chosen.length !== 0) {
+		 found_os = 0;
+		 os_chosen.forEach((o) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == o) {
+					 found_os = found_os + 1;
+				 }
+			 });
+		 });
 	 }
+
+	 if ((!filled && (found_attack < 1 && found_filter < 1 && found_os < 1 && !found_binName)) || (found_attack == 0 || found_filter == 0 || found_os == 0) || (!filled && item_chosen.length !== 0) || ((found_attack !== attack_chosen.length && found_attack !== -1) || (found_filter !== filter_chosen.length && found_filter !== -1) || (found_os !== os_chosen.length && found_os !== -1)) || (binPattern.length !== 0 && !found_binName)) {
+		row.style.display = 'none';
+	 } else {
+	    	row.style.display = '';
+	     	noResults = false;
+	 }
+
+	 if (functionPatterns.length == 0 && binPattern.length == 0) {
+	    	row.style.display = '';
+	     	noResults = false;
+	 }
+
      });
 
      // update the search message visibility

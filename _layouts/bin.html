@@ -11,24 +11,19 @@ layout: common
 {{ page.description | markdownify }}
 
 Command:
-{% for item_pair in site.data.items %}
-{% assign item_id = item_pair[0] %}
-{% assign item = item_pair[1] %}
-{% assign examples = page.items[item_id] %}
-{% unless examples %}{% continue %}{% endunless %}
 <ul class="examples">
-
-{% assign code_es = examples.first.code | escape | strip_newlines %}
-{% if code_es != "empty" %}
     <li>
-	<pre><code id="code_text">{{ examples.first.code | escape | strip_newlines }}<a href="javascript:void(0)" onClick="copyFunction_com()" style="float: right; margin-bottom: -5px;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="code_img"/></a></code></pre>
+	<pre><code id="code_text">{{ page.command | escape | strip_newlines }}<a href="javascript:void(0)" onClick="copyFunction_com()" style="float: right; margin-bottom: -5px;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="code_img"/></a></code></pre>
     </li>
-{% break %}
-{% endif %}
 
 </ul>
-{% endfor %}
 
+References:
+<ul style="list-style-type:none;">
+{% for reference in page.references %}
+<li><a href="{{ reference }}">{{ reference }}</a></li>
+{% endfor %}
+<ul>
 <script>
 
 function copyFunction_com() {

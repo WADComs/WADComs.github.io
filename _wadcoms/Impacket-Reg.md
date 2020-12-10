@@ -12,21 +12,16 @@ description: |
 
   	Password: password123
 
+command: |
+  python3 reg.py test.local/john:password123@10.10.10.1 query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
 items:
-  Password:
-    - code: |
-        python3 reg.py test.local/john:password123@10.10.10.1 query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
-  Username:
-    - code: |
-        empty
-filters:
-  SMB:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - SMB
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

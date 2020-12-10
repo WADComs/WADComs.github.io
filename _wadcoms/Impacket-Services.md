@@ -14,21 +14,16 @@ description: |
 
   	Action: list
 
+command: |
+  python3 services.py test.local/john:password123@10.10.10.1 list
 items:
-  Password:
-    - code: |
-        python3 services.py test.local/john:password123@10.10.10.1 list
-  Username:
-    - code: |
-        empty
-filters:
-  RPC:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - RPC
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

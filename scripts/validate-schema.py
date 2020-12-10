@@ -10,8 +10,10 @@ def parse_yaml(path):
         return yaml.load_all(text, Loader=yaml.SafeLoader)
 
 def build_schema():
-    filter_names = next(parse_yaml('_data/filters.yml')).keys()
-    item_names = next(parse_yaml('_data/items.yml')).keys()
+    service_names = next(parse_yaml('../_data/services.yml')).keys()
+    item_names = next(parse_yaml('../_data/items.yml')).keys()
+    OS_names = next(parse_yaml('../_data/OS.yml')).keys()
+    attack_names = next(parse_yaml('../_data/attack_types.yml')).keys()
     return {
         "definitions": {
             'examples': {
@@ -30,22 +32,41 @@ def build_schema():
         'type': 'object',
         'properties': {
             'description': {'type': 'string'},
+            'command': {'type': 'string'},
             'items': {
-                'type': 'object',
+                'type': 'array',
                 "patternProperties": {
                     '^({})$'.format('|'.join(item_names)): {'$ref': '#/definitions/examples'}
                 },
                 'additionalProperties': False
             },
-            'filters': {
-                'type': 'object',
+            'services': {
+                'type': 'array',
                 "patternProperties": {
-                    '^({})$'.format('|'.join(filter_names)): {'$ref': '#/definitions/examples'}
+                    '^({})$'.format('|'.join(service_names)): {'$ref': '#/definitions/examples'}
                 },
+                'additionalProperties': False
+            },
+            'OS': {
+                'type': 'array',
+                "patternProperties": {
+                    '^({})$'.format('|'.join(OS_names)): {'$ref': '#/definitions/examples'}
+                },
+                'additionalProperties': False
+            },
+            'attack_types': {
+                'type': 'array',
+                "patternProperties": {
+                    '^({})$'.format('|'.join(attack_names)): {'$ref': '#/definitions/examples'}
+                },
+                'additionalProperties': False
+            },
+            'references': {
+                'type': 'array',
                 'additionalProperties': False
             }
         },
-        'required': ['items'],
+        'required': ['items', 'command', 'OS'],
         'additionalProperties': False
     }
 
@@ -64,4 +85,4 @@ def validate_directory(root):
             sys.exit(1)
 
 if __name__ == '__main__':
-    validate_directory("_wadcoms/")
+   validate_directory("_wadcoms/") 

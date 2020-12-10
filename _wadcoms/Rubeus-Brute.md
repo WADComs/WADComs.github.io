@@ -11,15 +11,14 @@ description: |
   	Password List: passwords.txt
 
   	Output File: found_passwords.txt
+command: |
+  Rubeus.exe /users:usernames.txt /passwords:passwords.txt /domain:test.loacl /outfile:found_passwords.txt
 items:
-  No_Creds:
-    - code: |
-        Rubeus.exe /users:usernames.txt /passwords:passwords.txt /domain:test.loacl /outfile:found_passwords.txt
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - No_Creds
+services:
+  - Kerberos
+OS:
+  - Windows
+attack_types:
+  - Enumeration
 ---

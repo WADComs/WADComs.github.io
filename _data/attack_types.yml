@@ -1,0 +1,12 @@
+---
+Enumeration:
+  label: Enumeration
+  description: Command focuses on enumeration.
+
+Exploitation:
+  label: Exploitation
+  description: Command focuses on exploitation.
+
+Persistance:
+  label: Persistance
+  description: Command focuses on persistence.

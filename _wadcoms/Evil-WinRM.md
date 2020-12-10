@@ -9,21 +9,17 @@ description: |
   	Username: john
 
   	Password: password123
+
+command: |
+  evil-winrm -i 10.10.10.1 -u john -p password123
 items:
-  Password:
-    - code: |
-        evil-winrm -i 10.10.10.1 -u john -p password123
-  Username:
-    - code: |
-        empty
-filters:
-  WMI:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - WMI
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

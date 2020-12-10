@@ -7,18 +7,15 @@ description: |
   	Domain: test.local
 
   	Username List: usernames.txt
+command: |
+  kerbrute userenum -d test.local usernames.txt
 items:
-  No_Creds:
-    - code: |
-        kerbrute userenum -d test.local usernames.txt
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - No_Creds
+services:
+  - Kerberos
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

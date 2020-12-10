@@ -6,15 +6,12 @@ description: |
 
   	Target IP: 10.10.10.1
 
+command: |
+  enum4linux -a 10.10.10.1
 items:
-  No_Creds:
-    - code: |
-        enum4linux -a 10.10.10.1
-filters:
-  Enumeration:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
+  - No_Creds
+attack_types:
+  - Enumeration
+OS:
+  - Linux
 ---

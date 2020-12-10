@@ -1,6 +1,4 @@
 ---
-# this is the rendering order of filters
-
 SMB:
   label: SMB
   description: You've found the SMB service open  and need to know what you can do with it.
@@ -24,15 +22,3 @@ RPC:
 LDAP:
   label: LDAP
   description: You've found the LDAP service open and need to know what you can do with it.
-
-Enumeration:
-  label: Enumeration
-  description: Command is focused on enumeration.
-
-Linux:
-  label: Linux
-  description: Command can be run on Linux.
-
-Windows:
-  label: Windows
-  description: Command can be run on Windows.

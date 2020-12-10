@@ -9,21 +9,16 @@ description: |
   	Domain: test.local
 
   	Username List: usernames.txt
+command: |
+  nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm='test.local',userdb=usernames.txt 10.10.10.1
 items:
-  No_Creds:
-    - code: |
-        nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm='test.local',userdb=usernames.txt 10.10.10.1
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Enumeration:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - No_Creds
+services:
+  - Kerberos
+  - Enumeration
+OS:
+  - Linux
+  - Windows
+attack_types:
+  - Enumeration
 ---

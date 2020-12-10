@@ -6,18 +6,14 @@ description: |
 
   	Target IP: 10.10.10.1
 
+command: |
+  rpcclient -U '' -N 10.10.10.1
 items:
-  No_Creds:
-    - code: |
-        rpcclient -U '' -N 10.10.10.1
-filters:
-  Enumeration:
-    - code: |
-        empty
-  RPC:
-    - code: |
-        empty
-  Linux:
-    - code: |
-        empty
+  - No_Creds
+services:
+  - RPC
+OS:
+  - Linux
+attack_types:
+  - Enumeration
 ---

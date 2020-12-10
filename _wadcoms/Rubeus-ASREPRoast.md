@@ -6,18 +6,15 @@ description: |
 
   	Output File: hashes.txt
 
+command: |
+  Rubeus.exe asreproast /format:hashcat /outfile:hashes.txt
 items:
-  Username:
-    - code: |
-        Rubeus.exe asreproast /format:hashcat /outfile:hashes.txt
-  Password:
-    - code: |
-        empty
-filters:
-  Kerberos:
-    - code: |
-        empty
-  Windows:
-    - code: |
-        empty
+  - Username
+  - Password
+services:
+  - Kerberos
+OS:
+  - Windows
+attack_types:
+  - Exploitation
 ---
