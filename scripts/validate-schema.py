@@ -10,10 +10,10 @@ def parse_yaml(path):
         return yaml.load_all(text, Loader=yaml.SafeLoader)
 
 def build_schema():
-    service_names = next(parse_yaml('../_data/services.yml')).keys()
-    item_names = next(parse_yaml('../_data/items.yml')).keys()
-    OS_names = next(parse_yaml('../_data/OS.yml')).keys()
-    attack_names = next(parse_yaml('../_data/attack_types.yml')).keys()
+    service_names = next(parse_yaml('_data/services.yml')).keys()
+    item_names = next(parse_yaml('_data/items.yml')).keys()
+    OS_names = next(parse_yaml('_data/OS.yml')).keys()
+    attack_names = next(parse_yaml('_data/attack_types.yml')).keys()
     return {
         "definitions": {
             'examples': {
