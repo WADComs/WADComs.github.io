@@ -6,3 +6,5 @@
 WADComs is an interactive cheat sheet, containing a curated list of Unix/Windows offensive tools and their respective commands.
 
 Find the project at https://WADComs.github.io
+
+Created by [John Woodman](https://twitter.com/JohnWoodman15)
