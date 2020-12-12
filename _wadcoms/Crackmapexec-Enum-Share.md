@@ -1,6 +1,6 @@
 ---
 description: |
-  ["CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks."](https://github.com/byt3bl33d3r/CrackMapExec/wiki)
+  "CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks." - https://github.com/byt3bl33d3r/CrackMapExec/wiki
 
   The following command will enumerate smb shares and their permissions. 
 
