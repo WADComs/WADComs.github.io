@@ -24,6 +24,6 @@ OS:
 attack_types:
   - Exploitation
 references:
-  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py 
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/psexec.py
   - https://www.sans.org/blog/psexec-python-rocks/
 ---
