@@ -8,8 +8,12 @@ description: |
 
   	Target IP: 10.10.10.1
 
+    Username: john
+
+    Password: password123
+
 command: |
-  crackmapexec smb 10.10.10.1 -u 'username' -p 'password' --shares
+  crackmapexec smb 10.10.10.1 -u 'john' -p 'password123' --shares
 items:
   - Username
   - Password
