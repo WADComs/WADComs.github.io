@@ -4,19 +4,11 @@ description: |
 
   Command Reference:
 
-<<<<<<< HEAD
   	Target IP: 10.10.10.1
 
   	Username: john
 
   	Password: password123
-=======
-    Target IP: 10.10.10.1
-    
-    Username: john
-    
-    Password: password123
->>>>>>> 3842148fab26eb80963d666a41840752e9b34299
 
 command: |
   crackmapexec smb 10.10.10.1 -u 'john' -p 'password123' --shares
