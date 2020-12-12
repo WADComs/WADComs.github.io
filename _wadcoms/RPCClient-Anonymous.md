@@ -16,4 +16,7 @@ OS:
   - Linux
 attack_types:
   - Enumeration
+references:
+  - https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html
+  - https://www.ired.team/offensive-security/enumeration-and-discovery/enumerating-windows-domains-using-rpcclient-through-socksproxy-bypassing-command-line-logging
 ---

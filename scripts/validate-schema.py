@@ -66,7 +66,7 @@ def build_schema():
                 'additionalProperties': False
             }
         },
-        'required': ['items', 'command', 'OS'],
+        'required': ['items', 'command', 'OS', 'references'],
         'additionalProperties': False
     }
 

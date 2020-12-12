@@ -24,4 +24,7 @@ OS:
   - Windows
 attack_types:
   - Enumeration
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/lookupsid.py
+  - https://www.puckiestyle.nl/impacket/
 ---

@@ -22,4 +22,6 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/Hackplayers/evil-winrm
 ---

@@ -24,4 +24,6 @@ attack_types:
 OS:
   - Linux
   - Windows
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetADUsers.py
 ---

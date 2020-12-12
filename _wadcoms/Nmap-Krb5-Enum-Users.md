@@ -21,4 +21,7 @@ OS:
   - Windows
 attack_types:
   - Enumeration
+references:
+  - https://nmap.org/download.html
+  - https://nmap.org/nsedoc/scripts/krb5-enum-users.html
 ---

@@ -19,4 +19,6 @@ attack_types:
   - Enumeration
 OS:
   - Linux
+references:
+  - https://github.com/CiscoCXSecurity/enum4linux
 ---

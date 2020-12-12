@@ -16,4 +16,6 @@ OS:
   - Linux
 attack_types:
   - Enumeration
+references:
+  - https://linux.die.net/man/1/ldapsearch
 ---

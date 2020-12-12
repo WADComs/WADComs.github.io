@@ -23,4 +23,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py
+  - https://riccardoancarani.github.io/2020-05-10-hunting-for-impacket/#wmiexecpy
 ---

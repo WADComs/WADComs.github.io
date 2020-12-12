@@ -21,4 +21,7 @@ OS:
   - Windows
 attack_types:
   - Enumeration
+references:
+  - https://github.com/GhostPack/Rubeus
+  - https://github.com/GhostPack/Rubeus#brute
 ---

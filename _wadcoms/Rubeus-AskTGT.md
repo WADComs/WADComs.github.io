@@ -21,4 +21,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/GhostPack/Rubeus
+  - https://github.com/GhostPack/Rubeus#asktgt
 ---

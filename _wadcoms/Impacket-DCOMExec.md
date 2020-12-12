@@ -27,4 +27,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/dcomexec.py
+  - https://riccardoancarani.github.io/2020-05-10-hunting-for-impacket/
 ---

@@ -24,4 +24,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/mimikatz.py
+  - https://www.tarlogic.com/en/blog/how-to-attack-kerberos/
 ---

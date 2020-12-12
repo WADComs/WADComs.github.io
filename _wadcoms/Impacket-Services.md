@@ -26,4 +26,7 @@ OS:
   - Windows
 attack_types:
   - Enumeration
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/services.py
+  - https://www.hackingarticles.in/impacket-guide-smb-msrpc/
 ---

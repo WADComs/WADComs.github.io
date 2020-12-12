@@ -17,4 +17,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py
+  - https://www.praetorian.com/blog/active-directory-computer-account-smb-relaying-attack
 ---

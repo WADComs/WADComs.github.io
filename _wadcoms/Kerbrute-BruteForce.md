@@ -17,4 +17,6 @@ OS:
   - Linux
 attack_types:
   - Enumeration
+references:
+  - https://github.com/ropnop/kerbrute
 ---

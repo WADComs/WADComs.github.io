@@ -25,4 +25,7 @@ OS:
   - Linux
 attack_types:
   - Enumeration
+references:
+  - https://www.samba.org/samba/docs/current/man-html/smbclient.1.html 
+  - https://www.madirish.net/59
 ---

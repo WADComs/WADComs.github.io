@@ -26,4 +26,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://gist.github.com/3xocyte/cfaf8a34f76569a8251bde65fe69dccc
+  - https://www.praetorian.com/blog/active-directory-computer-account-smb-relaying-attack
 ---

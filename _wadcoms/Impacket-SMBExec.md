@@ -23,4 +23,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+references:
+  - https://github.com/SecureAuthCorp/impacket/blob/master/examples/smbexec.py
+  - https://www.varonis.com/blog/insider-danger-stealthy-password-hacking-with-smbexec/
 ---
