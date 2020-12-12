@@ -10,3 +10,6 @@ Exploitation:
 Persistance:
   label: Persistance
   description: Command focuses on persistence.
+PrivEsc:
+  label: Privilege Escalation
+  description: Command focuses on privilege escalation.

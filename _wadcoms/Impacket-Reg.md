@@ -24,6 +24,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+  - Persistence
 references:
   - https://github.com/SecureAuthCorp/impacket/blob/master/examples/reg.py
   - https://www.hackingarticles.in/impacket-guide-smb-msrpc/
