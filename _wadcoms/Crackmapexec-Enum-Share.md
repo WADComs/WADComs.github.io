@@ -6,7 +6,7 @@ description: |
 
   Command Reference:
 
-  	Target IP: 10.10.10.1
+    Target IP: 10.10.10.1
     
     Username: john
     
