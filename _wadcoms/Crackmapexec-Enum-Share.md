@@ -7,9 +7,9 @@ description: |
   Command Reference:
 
   	Target IP: 10.10.10.1
-
+    
     Username: john
-
+    
     Password: password123
 
 command: |
