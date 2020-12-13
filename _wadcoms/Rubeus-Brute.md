@@ -12,7 +12,7 @@ description: |
 
   	Output File: found_passwords.txt
 command: |
-  Rubeus.exe /users:usernames.txt /passwords:passwords.txt /domain:test.loacl /outfile:found_passwords.txt
+  Rubeus.exe /users:usernames.txt /passwords:passwords.txt /domain:test.local /outfile:found_passwords.txt
 items:
   - No_Creds
 services:
