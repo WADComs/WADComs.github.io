@@ -107,6 +107,7 @@ h2, h3, h4, h5, h5 {
             background: $lighter;
             font-size: initial;
             border-radius: 0.25em;
+	    cursor: pointer;
 
             &:hover:before {
                 content: attr(data-title);
@@ -252,6 +253,7 @@ h2, h3, h4, h5, h5 {
 }
 
 .bin-name {
+    display: flex;
     font-family: monospace;
     font-size: 1.0rem;
     padding: 0.75em 1.0em;
