@@ -10,6 +10,8 @@ command: |
   SharpWMI.exe action=query query="select * from win32_process"
 items:
   - Shell
+services:
+  - WMI
 OS:
   - Windows
 attack_types:

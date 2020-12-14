@@ -21,6 +21,7 @@ items:
   - Username
 services:
   - RPC
+  - NTLM
 OS:
   - Linux
   - Windows

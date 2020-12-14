@@ -16,6 +16,8 @@ items:
   - Shell
   - Username
   - Password
+services:
+  - LDAP
 OS:
   - Windows
 attack_types:
