@@ -28,6 +28,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+  - Persistence
 references:
   - https://github.com/SecureAuthCorp/impacket/blob/master/examples/ticketer.py
   - https://www.tarlogic.com/en/blog/how-to-attack-kerberos/
