@@ -4,13 +4,13 @@ description: |
 
   Command Reference:
 
-  	Value Name: /v Persistence
+  	Value Name: Persistence
 
-  	RegKey data type: /t REG_SZ
-    
-  	Data: /d "C:\Path\To\revshell.exe"
+  	RegKey data type: REG_SZ
 
-  	KeyName: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run" 
+  	Data: "C:\Path\To\revshell.exe"
+
+  	KeyName: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run"
 
 command: |
    reg.exe add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run" /v Persistence /t REG_SZ /d "C:\Path\To\revshell.exe"
