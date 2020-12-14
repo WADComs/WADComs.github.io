@@ -59,7 +59,7 @@
             {% endfor %}
         </tbody>
         <tfoot>
-            <tr><td id="search-message" colspan="2">No binary matches...</td></tr>
+		<tr><td id="search-message" colspan="2">Couldn't find the command you're looking for? <a href="/contribute/">Contribute</a> your own!</td></tr>
         </tfoot>
     </table>
 </div>
@@ -257,8 +257,8 @@
      });
 
      // update the search message visibility
-     var searchMessage = document.getElementById('search-message');
-     searchMessage.style.display = noResults ? 'table-cell' : 'none';
+     //var searchMessage = document.getElementById('search-message');
+     //searchMessage.style.display = noResults ? 'table-cell' : 'none';
  }
 
  function applyFilter() {
