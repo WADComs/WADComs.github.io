@@ -21,7 +21,7 @@ items:
 OS:
   - Windows
 attack_types:
-  - Persistance
+  - Persistence
 references:
   - https://pentestlab.blog/2019/10/01/persistence-registry-run-keys/
   - https://www.hackingarticles.in/windows-persistence-using-winlogon/

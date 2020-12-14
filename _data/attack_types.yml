@@ -7,8 +7,8 @@ Exploitation:
   label: Exploitation
   description: Command focuses on exploitation.
 
-Persistance:
-  label: Persistance
+Persistence:
+  label: Persistence
   description: Command focuses on persistence.
 PrivEsc:
   label: Privilege Escalation
