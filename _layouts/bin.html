@@ -11,9 +11,10 @@ layout: common
 {{ page.description | markdownify }}
 
 Command:
+<a href="javascript:void(0)" onClick="copyFunction_com()" style="float: right; margin-bottom: -10px;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="code_img"/></a>
 <ul class="examples">
     <li>
-	<pre><code id="code_text">{{ page.command | escape }}<a href="javascript:void(0)" onClick="copyFunction_com()" style="float: right; margin-bottom: -5px;"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="code_img"/></a></code></pre>
+	<pre><code id="code_text">{{ page.command | escape }}</code></pre>
     </li>
 
 </ul>
@@ -31,7 +32,7 @@ References:
 function copyFunction_com() {
 	 var copyCommand = document.getElementById("code_text");
 
-	 navigator.clipboard.writeText(copyCommand.innerText).then(() => {
+	 navigator.clipboard.writeText(copyCommand.innerText.replace(/\n+$/, "")).then(() => {
 		 document.getElementById("code_img").alt = "Copied";
 		 document.getElementById("code_img").title = "Copied";
 	 }, () => {
