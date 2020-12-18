@@ -1,16 +1,20 @@
 ---
 ---
 
-$accent: #07bf07;
-$lighter: #f4fff4;
+$accent: #a9a9b3;
+$lighter: #000000;
 $marked: #ccffcc;
-$hover: #00ff00;
-
+$hover: #a9a9b3;
+$dark: #292a2d;
+$darkText: #a9a9b3;
+$test: #ff0000;
+$greenColor: #07bf07;
 // layout
 
 $column-width: 800px;
 $grace-space: 200px;
 $layout-break: "(min-width: #{$column-width + $grace-space})";
+
 
 @media #{$layout-break} {
     body {
@@ -33,17 +37,18 @@ $layout-break: "(min-width: #{$column-width + $grace-space})";
 
 body {
     font-family: sans, sans-serif;
+    background: $dark;
+    color: $darkText;
 }
 
 code {
     padding: 0.15em 0.25em;
     border-radius: 0.25em;
-    color: $accent;
-    background: $lighter;
+    color: $greenColor;
 }
 
 pre {
-    background: $lighter;
+    background: $marked;
     padding: 1em;
     overflow-x: auto;
 
@@ -54,7 +59,7 @@ pre {
 }
 
 a:link, a:visited {
-    color: $accent;
+    color: $greenColor;
 }
 
 a:hover {
@@ -104,7 +109,7 @@ h2, h3, h4, h5, h5 {
         text-align: center;
 	
 	input[type=checkbox] + label {
-            background: $lighter;
+            background: $marked;
             font-size: initial;
             border-radius: 0.25em;
 	    cursor: pointer;
@@ -122,7 +127,7 @@ h2, h3, h4, h5, h5 {
                 padding: 1em;
                 border-radius: 1em;
                 color: $lighter;
-                background: rgba(0, 0, 0, 0.75);
+                background: $accent;
                 z-index: 1;
                 pointer-events: none;
             }
@@ -184,7 +189,7 @@ h2, h3, h4, h5, h5 {
         }
 
         a:link, a:visited {
-            color: $accent;
+            color: $greenColor;
             text-decoration: none;
         }
 
@@ -202,7 +207,8 @@ h2, h3, h4, h5, h5 {
             padding: 0.25em 0.5em;
             margin: 0.2em 0;
             border: 1px solid $accent;
-            color: $accent;
+            background: $marked;
+            color: $greenColor;
             text-decoration: none;
         }
 	
@@ -291,14 +297,12 @@ h2, h3, h4, h5, h5 {
     left: 0;
     right: 0;
     bottom: 0;
+    background-color: #ccc;
     -webkit-transition: .4s;
-    background-image: url(night.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     transition: .4s;
   }
   
-  .slider:before +.slider::before{
+  .slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -307,7 +311,6 @@ h2, h3, h4, h5, h5 {
     bottom: 4px;
     -webkit-transition: .4s;
     transition: .4s;
-    background-image: url(night.jpg);
   }
   
   input:checked + .slider {
