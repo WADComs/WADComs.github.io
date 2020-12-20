@@ -280,6 +280,8 @@ h2, h3, h4, h5, h5 {
     display: inline-block;
     width: 100px;
     height: 40px;
+    margin-bottom: -10px;
+    margin-left: 10px;
   }
   
   .switch input {display:none;}
@@ -294,7 +296,7 @@ h2, h3, h4, h5, h5 {
     -webkit-transition: .4s;
     background-image: url(night.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     transition: .4s;
   }
   

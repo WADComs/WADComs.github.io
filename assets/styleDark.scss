@@ -1,10 +1,10 @@
 ---
 ---
 
-$accent: #a9a9b3;
-$lighter: #000000;
+$accent: #07bf07;
+$lighter: #f4fff4;
 $marked: #ccffcc;
-$hover: #a9a9b3;
+$hover: #00ff00;
 $dark: #292a2d;
 $darkText: #a9a9b3;
 $test: #ff0000;
@@ -127,7 +127,7 @@ h2, h3, h4, h5, h5 {
                 padding: 1em;
                 border-radius: 1em;
                 color: $lighter;
-                background: $accent;
+                background: rgba(0, 0, 0, 0.75);
                 z-index: 1;
                 pointer-events: none;
             }
@@ -160,7 +160,7 @@ h2, h3, h4, h5, h5 {
     }
 
     tbody tr:hover {
-        background: $lighter;
+        background: #3b3b3b;
     }
 
     #search-message {
@@ -286,6 +286,8 @@ h2, h3, h4, h5, h5 {
     display: inline-block;
     width: 100px;
     height: 40px;
+    margin-bottom: -10px;
+    margin-left: 10px;
   }
   
   .switch input {display:none;}
@@ -299,6 +301,7 @@ h2, h3, h4, h5, h5 {
     bottom: 0;
     background-color: #ccc;
     -webkit-transition: .4s;
+    background-size: 100% 100%;
     transition: .4s;
   }
   
