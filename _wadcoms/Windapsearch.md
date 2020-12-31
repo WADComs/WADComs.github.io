@@ -10,7 +10,7 @@ description: |
 
   	Username: john
 
-  	Password: password123	
+  	Password: password123
 
   	Enum Users: -U
 
