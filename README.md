@@ -3,7 +3,7 @@
 [Build Status]: https://travis-ci.org/WADComs/WADComs.github.io.svg?branch=master
 [travis]: https://travis-ci.org/WADComs/WADComs.github.io
 
-WADComs is an interactive cheat sheet, containing a curated list of Unix/Windows offensive tools and their respective commands.
+WADComs is an interactive cheat sheet, containing a curated list of offensive security tools and their respective commands, to be used against Windows/AD environments.
 
 Find the project at https://WADComs.github.io
 
