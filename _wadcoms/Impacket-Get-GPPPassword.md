@@ -25,6 +25,7 @@ OS:
   - Windows
 attack_types:
   - Exploitation
+  - Enumeration
 references:
   - https://github.com/SecureAuthCorp/impacket/blob/master/examples/Get-GPPPassword.py
   - https://podalirius.net/en/articles/exploiting-windows-group-policy-preferences/
