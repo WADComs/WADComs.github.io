@@ -15,7 +15,7 @@ description: |
   	Password: password123
 
 command: |
-  ldapmonitor.exe /dcip:10.10.10.1 /user:john /pass:password123 /domain:test.local
+  ldapmonitor.exe /dcip:10.10.10.1 /user:TEST.local\john /pass:password123
 
 items:
   - Password
