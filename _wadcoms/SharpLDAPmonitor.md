@@ -1,6 +1,6 @@
 ---
 description: |
-  ldapmonitor.exe allows to monitor creation, deletion and changes to LDAP objects live during your pentest.
+  SharpLDAPmonitor.exe allows to monitor creation, deletion and changes to LDAP objects live during your pentest.
 
   Command Reference:
 
@@ -15,7 +15,7 @@ description: |
   	Password: password123
 
 command: |
-  ldapmonitor.exe /dcip:10.10.10.1 /user:TEST.local\john /pass:password123
+  SharpLDAPmonitor.exe /dcip:10.10.10.1 /user:TEST.local\john /pass:password123
 
 items:
   - Password
