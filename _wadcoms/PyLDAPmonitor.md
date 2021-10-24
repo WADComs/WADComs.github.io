@@ -21,7 +21,6 @@ items:
   - Password
   - Username
   - Hash
-  - Shell
 services:
   - LDAP
   - Kerberos
