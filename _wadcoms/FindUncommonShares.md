@@ -26,7 +26,7 @@ OS:
   - Linux
   - Windows
 attack_types:
-  - Exploitation
+  - Enumeration
 references:
   - https://github.com/p0dalirius/FindUncommonShares
 ---
