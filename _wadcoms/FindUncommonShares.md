@@ -1,6 +1,6 @@
 ---
 description: |
-  
+  The script FindUncommonShares.py is a Python equivalent of PowerView's Invoke-ShareFinder.ps1 allowing to quickly find uncommon shares in vast Windows Domains.
 
   Command Reference:
 
