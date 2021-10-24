@@ -29,5 +29,4 @@ attack_types:
   - Exploitation
 references:
   - https://github.com/p0dalirius/FindUncommonShares
-  - https://www.praetorian.com/blog/active-directory-computer-account-smb-relaying-attack
 ---
