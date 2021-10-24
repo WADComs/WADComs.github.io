@@ -1,6 +1,6 @@
 ---
 description: |
-  SharpLDAPmonitor.exe allows to monitor creation, deletion and changes to LDAP objects live during your pentest.
+  SharpLDAPmonitor.exe allows you to monitor creation, deletion and changes to LDAP objects live during your pentest.
 
   Command Reference:
 
