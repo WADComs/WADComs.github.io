@@ -1,7 +1,7 @@
 ---
 description: |
   targetedKerberoast is a Python script that can, like many others (e.g. GetUserSPNs.py), print "kerberoast" hashes for user accounts that have a SPN set.
- 
+
   Command Reference:
 
   	Target IP: 10.10.10.1
