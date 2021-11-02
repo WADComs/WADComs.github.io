@@ -8,7 +8,7 @@ description: |
 command: |
   export KRB5CCNAME=/full/path/to/john.ccache; python3 psexec.py test.local/john@10.10.10.1 -k -no-pass
 items:
-  - Service Ticket
+  - TGS
   - Username
 services:
   - SMB
