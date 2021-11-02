@@ -15,9 +15,9 @@ Hash:
   label: Hash
   description: You've found hash(es) and need to know what you can do with them.
 
-Service_Ticket:
-  label: Service Ticket
-  description: You've found a users Service Ticket and need to know what you can do with it.
+TGS:
+  label: TGS
+  description: You've found a users TGS and need to know what you can do with it.
 
 Shell:
   label: Shell
