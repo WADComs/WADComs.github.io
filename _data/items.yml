@@ -17,7 +17,7 @@ Hash:
 
 TGS:
   label: TGS
-  description: You've found a users TGS and need to know what you can do with it.
+  description: You've found a user's Ticket Granting Service and need to know what you can do with it.
 
 Shell:
   label: Shell
