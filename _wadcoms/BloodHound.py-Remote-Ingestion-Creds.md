@@ -11,10 +11,10 @@ description: |
 
   	Password: password123
 
-	Domain: example.com
+	Domain: test.local
 
 command: |
-	bloodhound.py -u john -p password123 -d example.com -v --zip -c All -dc example.com -ns 10.10.10.1
+	bloodhound.py -u john -p password123 -d test.local -v --zip -c All -dc test.local -ns 10.10.10.1
 items:
   - Username
   - Password
