@@ -7,7 +7,7 @@ description: |
 
   	Target IP: 10.10.10.1
 
-	Domain: test.local
+  	Domain: test.local
 
 command: |
 	bloodhound.py -d test.local -v --zip -c All -dc test.local -ns 10.10.10.1

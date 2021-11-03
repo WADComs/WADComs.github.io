@@ -11,7 +11,7 @@ description: |
 
   	Password: password123
 
-	Domain: test.local
+  	Domain: test.local
 
 command: |
 	bloodhound.py -u john -p password123 -d test.local -v --zip -c All -dc test.local -ns 10.10.10.1
