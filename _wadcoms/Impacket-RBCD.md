@@ -1,6 +1,6 @@
 ---
 description: |
-  Impacket rbcd.py will modify the msDS-AllowedToActOnBehalfOfOtherIdentity property of a target computer with security descriptor of another computer. 
+  Impacket rbcd.py will modify the msDS-AllowedToActOnBehalfOfOtherIdentity property of a target computer with security descriptor of another computer.
   The following command adds the related security descriptor of the created EVILCOMPUTER to the msDS-AllowedToActOnBehalfOfOtherIdentity property of DC01.
   This basically means that EVILCOMPUTER can get impersonated service tickets for DC01 using getST.py.
 
