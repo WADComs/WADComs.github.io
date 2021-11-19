@@ -12,8 +12,6 @@ description: |
 
     Username: john
 
-    Password: password123
-
     Hash: :A9FDFA038C4B75EBC76DC855DD74F0DA
 
     Delegate To: DC01$
