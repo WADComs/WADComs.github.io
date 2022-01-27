@@ -9,23 +9,19 @@ description: Smbclient is a tool used to communicate with SMB servers. The follo
 
   	Username: john
 
-  	Password: password123
+  	Hash: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 command: |
   smbclient -L \\10.10.10.1 -U test.local/john --pw-nt-hash XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 items:
   - Username
   - Hash
-  ...
 services:
   - SMB
-  ...
 OS:
   - Linux
-  ...
 attack_types:
   - Enumeration
 references:
   - https://www.samba.org/samba/docs/current/man-html/smbclient.1.html
-  ...
 ---
