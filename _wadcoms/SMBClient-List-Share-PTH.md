@@ -1,5 +1,6 @@
 ---
-description: Smbclient is a tool used to communicate with SMB servers. The following command will list out all available shares on the target ip using user John hash on test domain.
+description: |
+  Smbclient is a tool used to communicate with SMB servers. The following command will list out all available shares on the target ip using user John hash on test domain.
 
   Command Reference:
 
