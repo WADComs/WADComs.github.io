@@ -19,7 +19,7 @@ command: |
 items:
   - Username
   - Password
-  - PFX file
+  - PFX
 services:
   - Kerberos
 OS:
