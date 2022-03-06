@@ -18,6 +18,14 @@ Hash:
 TGS:
   label: TGS
   description: You've found a user's Ticket Granting Service and need to know what you can do with it.
+  
+TGT:
+  label: TGT
+  description: You've found a user's or computer Ticket Granting Ticket and need to know what you can do with it.
+  
+PFX:
+  label: PFX
+  description: You've found a computer PFX file, which is in a PKCS#12 format, and need to know what you can do with it.
 
 Shell:
   label: Shell
