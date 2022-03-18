@@ -6,7 +6,7 @@ description: |
   
     Domain: test.local
     
-    Host that you got the TGT: DC01
+    Host that you got the TGT from: DC01
     
     TGT from gettgtpkinit.py: out.ccache
     
