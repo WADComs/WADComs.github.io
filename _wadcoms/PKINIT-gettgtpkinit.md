@@ -6,7 +6,7 @@ description: |
 
     Domain: test.local
 
-    Host that you got the certificate: DC01
+    Host that you got the certificate from: DC01
 
     PFX file: crt.pfx
 
