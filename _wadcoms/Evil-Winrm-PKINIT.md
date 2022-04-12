@@ -4,11 +4,11 @@ description: |
 
   Command Reference:
 
-    Target IP: 10.10.10.1
+  	Target IP: 10.10.10.1
 
-    PFX File: cert.pfx
+  	PFX File: cert.pfx
 
-    Domain: EVILCORP
+  	Domain: EVILCORP
 
 command: |
   evil-winrm -i 10.10.10.1 -c pub.pem -k priv.pem -S -r EVILCORP
