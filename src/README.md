@@ -2,6 +2,7 @@
 
 This is a terminal-based tool that allows users to search for tools and commands without going to the website.
 
+This is a work in progress.
 
 ### Usage
 ```bash
