@@ -26,3 +26,7 @@ LDAP:
 NTLM:
   label: NTLM
   description: Command relates to the NTLM protocol.
+
+DNS:
+  label: DNS
+  description: Command relates to the DNS service.

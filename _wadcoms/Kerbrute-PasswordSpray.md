@@ -12,7 +12,7 @@ description: |
 command: |
   kerbrute passwordspray -d test.local domain_users.txt password123
 items:
-  - Password
+  - Username
 services:
   - Kerberos
 OS:
