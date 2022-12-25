@@ -1,314 +1,346 @@
 <style>
-.selected {
-	color: #ff0000 !important;
-	border-color: #ff0000 !important;
-}
+	.selected {
+		color: #ff0000 !important;
+		border-color: #ff0000 !important;
+	}
 </style>
 
 <div id="bin-search-wrapper">
 
-    <ul id="bin-search-filters" class="filter-list">
-	<h3>What you have:</h3>
-	{% for item_pair in site.data.items %}
-	{% assign item_id = item_pair[0] %}
-	{% assign item = item_pair[1] %}
-	<li><input type="checkbox" id="{{ item.label }}" name="item_name" onclick='handleChange(this, "{{ item.label }}");'><label id="{{ item.label }}_label" for="{{ item.label }}" data-title="{{ item.description | replace: '\n', ' ' }}">{{ item.label }}</label></li>
-	{% endfor %}
-    </ul>
-    <ul id="bin-search-filters" class="filter-list">
-	<h3>Services:</h3>
-        {% for service_pair in site.data.services %}
-        {% assign service_id = service_pair[0] %}
-        {% assign service = service_pair[1] %}
-	<li><input type="checkbox" id="{{ service.label }}" name="service_name" onclick='handleChange(this, "{{ service.label }}");'><label id="{{ service.label }}_label" for="{{ service.label }}" data-title="{{ service.description | replace: '\n', ' ' }}">{{ service.label }}</label></li>
-        {% endfor %}
-    </ul>
-    <ul id="bin-search-filters" class="filter-list">
-	<h3>Attack Type:</h3>
-	{% for attack_pair in site.data.attack_types %}
-	{% assign attack_id = attack_pair[0] %}
-	{% assign attack = attack_pair[1] %}
-	<li><input type="checkbox" id="{{ attack.label }}" name="attack_name" onclick='handleChange(this, "{{ attack.label }}");'><label id="{{ attack.label }}_label" for="{{ attack.label }}" data-title="{{ attack.description | replace: '\n', ' ' }}">{{ attack.label }}</label></li>
-	{% endfor %}
-    </ul>
-    <ul id="bin-search-filters" class="filter-list">
-	<h3>OS:</h3>
-	{% for OS_pair in site.data.OS %}
-	{% assign OS_id = OS_pair[0] %}
-	{% assign OS = OS_pair[1] %}
-	<li><input type="checkbox" id="{{ OS.label }}" name="OS_name" onclick='handleChange(this, "{{ OS.label }}");'><label id="{{ OS.label }}_label" for="{{ OS.label }}" data-title="{{ OS.description | replace: '\n', ' ' }}">{{ OS.label }}</label></li>
-	{% endfor %}
-    </ul>
+	<ul id="bin-search-filters" class="filter-list">
+		<h3>What you have:</h3>
+		{% for item_pair in site.data.items %}
+		{% assign item_id = item_pair[0] %}
+		{% assign item = item_pair[1] %}
+		<li><input type="checkbox" id="{{ item.label }}" name="item_name"
+				onclick='handleChange(this, "{{ item.label }}");'><label id="{{ item.label }}_label"
+				for="{{ item.label }}" data-title="{{ item.description | replace: '\n', ' ' }}">{{ item.label }}</label>
+		</li>
+		{% endfor %}
+	</ul>
+	<ul id="bin-search-filters" class="filter-list">
+		<h3>Services:</h3>
+		{% for service_pair in site.data.services %}
+		{% assign service_id = service_pair[0] %}
+		{% assign service = service_pair[1] %}
+		<li><input type="checkbox" id="{{ service.label }}" name="service_name"
+				onclick='handleChange(this, "{{ service.label }}");'><label id="{{ service.label }}_label"
+				for="{{ service.label }}" data-title="{{ service.description | replace: '\n', ' ' }}">{{ service.label
+				}}</label></li>
+		{% endfor %}
+	</ul>
+	<ul id="bin-search-filters" class="filter-list">
+		<h3>Attack Type:</h3>
+		{% for attack_pair in site.data.attack_types %}
+		{% assign attack_id = attack_pair[0] %}
+		{% assign attack = attack_pair[1] %}
+		<li><input type="checkbox" id="{{ attack.label }}" name="attack_name"
+				onclick='handleChange(this, "{{ attack.label }}");'><label id="{{ attack.label }}_label"
+				for="{{ attack.label }}" data-title="{{ attack.description | replace: '\n', ' ' }}">{{ attack.label
+				}}</label></li>
+		{% endfor %}
+	</ul>
+	<ul id="bin-search-filters" class="filter-list">
+		<h3>OS:</h3>
+		{% for OS_pair in site.data.OS %}
+		{% assign OS_id = OS_pair[0] %}
+		{% assign OS = OS_pair[1] %}
+		<li><input type="checkbox" id="{{ OS.label }}" name="OS_name"
+				onclick='handleChange(this, "{{ OS.label }}");'><label id="{{ OS.label }}_label" for="{{ OS.label }}"
+				data-title="{{ OS.description | replace: '\n', ' ' }}">{{ OS.label }}</label></li>
+		{% endfor %}
+	</ul>
 
 </div>
 <div style="margin-top: -20px;">
-<input id="bin-search" type="text" placeholder="Search among {{ site.wadcoms | size }} commands: <command> +<filter> ..."/>
+	<input id="bin-search" type="text"
+		placeholder="Search among {{ site.wadcoms | size }} commands: <command> +<filter> ..." />
 </div>
 
 <div id="bin-table-wrapper">
-    <table id="bin-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-            </tr>
-        </thead>
-        <tbody>
-	    {% assign sites = site.wadcoms | reverse %} 
-            {% for file in sites %}
-            <tr>
-		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="{{ file.url }}" id="{{ file.url }}" style="text-decoration: none; color: DarkGreen;">{{ file.command | escape }}</a></div><div style="flex: 1;"><a href="javascript:void(0)" onClick="copyFunction('{{ file.url }}')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="{{ file.url }}_img"/></a></div></div><p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot>
-		<tr><td id="search-message" colspan="2">Couldn't find the command you're looking for? <a href="/contribute/">Contribute</a> your own!</td></tr>
-        </tfoot>
-    </table>
+	<table id="bin-table">
+		<thead>
+			<tr>
+				<th>Command</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% assign sites = paginator.wadcoms | reverse %}
+			{% for file in sites %}
+			<tr>
+				<td>
+					<div class="bin-name">
+						<div style="flex: 0 0 97%"><a href="{{ file.url }}" id="{{ file.url }}"
+								style="text-decoration: none; color: DarkGreen;">{{ file.command | escape }}</a></div>
+						<div style="flex: 1;"><a href="javascript:void(0)" onClick="copyFunction('{{ file.url }}')"><img
+									src="/assets/copy-button.svg" alt="Copy" title="Copy" id="{{ file.url }}_img" /></a>
+						</div>
+					</div>
+					<p style="margin-top: -12px;">{% include filter_list.html bin=file %}</p>
+				</td>
+			</tr>
+			{% endfor %}
+			<a href="{{ paginator.previous_page_path }}">Previous page</a> | <a
+				href="{{ paginator.next_page_path }}">Next page</a>
+
+			{{ paginator.page }}
+			{{ paginator.total_pages | inspect }}
+			{% for page in paginator.total_pages %}
+			{{ page }}
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td id="search-message" colspan="2">Couldn't find the command you're looking for? <a
+						href="/contribute/">Contribute</a> your own!</td>
+			</tr>
+		</tfoot>
+	</table>
 </div>
 
 <script>
 
- function copyFunction(file_url) {
-	 var copyCommand = document.getElementById(file_url);
+	function copyFunction(file_url) {
+		var copyCommand = document.getElementById(file_url);
 
-	 navigator.clipboard.writeText(copyCommand.innerText).then(() => {
-		 {% for file in site.wadcoms %}
-		 document.getElementById("{{ file.url }}_img").alt = "Copy";
-		 document.getElementById("{{ file.url }}_img").title = "Copy";
-		 {% endfor %}
-		 document.getElementById(file_url + "_img").alt = "Copied";
-		 document.getElementById(file_url + "_img").title = "Copied";
-	 }, () => {
-		 console.log("copy failed");
-	 });
+		navigator.clipboard.writeText(copyCommand.innerText).then(() => {
+			{% for file in site.wadcoms %}
+			document.getElementById("{{ file.url }}_img").alt = "Copy";
+			document.getElementById("{{ file.url }}_img").title = "Copy";
+			{% endfor %}
+			document.getElementById(file_url + "_img").alt = "Copied";
+			document.getElementById(file_url + "_img").title = "Copied";
+		}, () => {
+			console.log("copy failed");
+		});
 
- }
+	}
 
- function handleChange(checkbox, label) {
-	 if (checkbox.checked == true) {
-		 document.getElementById(label).className = 'match';
-		 document.getElementById(label + "_label").innerText = label + "✓";
-		 var slash = window.location.href.lastIndexOf("/");
-		 if (window.location.href[slash+1] == "#") {
-		     window.location.href+='+' + label
-		 } else {
-		     window.location.href+='#+' + label
-		 }
-	 } else {
-		 document.getElementById(label).className = "";
-		 document.getElementById(label + "_label").innerText = label;
-		 label = label.replace(" ", "%20");
-		 var new_href = window.location.href.replace("+"+label, "");
-		 window.location.href = new_href;
-		 if (window.location.hash == "") {
-			 document.getElementById("bin-search").value = "";
-		 }
-	 }
- }
+	function handleChange(checkbox, label) {
+		if (checkbox.checked == true) {
+			document.getElementById(label).className = 'match';
+			document.getElementById(label + "_label").innerText = label + "✓";
+			var slash = window.location.href.lastIndexOf("/");
+			if (window.location.href[slash + 1] == "#") {
+				window.location.href += '+' + label
+			} else {
+				window.location.href += '#+' + label
+			}
+		} else {
+			document.getElementById(label).className = "";
+			document.getElementById(label + "_label").innerText = label;
+			label = label.replace(" ", "%20");
+			var new_href = window.location.href.replace("+" + label, "");
+			window.location.href = new_href;
+			if (window.location.hash == "") {
+				document.getElementById("bin-search").value = "";
+			}
+		}
+	}
 
- function filter(query) {
-     var queryArray = query.toLowerCase().trim().split(/ *\+/);
-     var binPattern = queryArray[0];
-     var functionPatterns = queryArray.splice(1);
+	function filter(query) {
+		var queryArray = query.toLowerCase().trim().split(/ *\+/);
+		var binPattern = queryArray[0];
+		var functionPatterns = queryArray.splice(1);
 
-     // filter rows
-     var noResults = true;
+		// filter rows
+		var noResults = true;
 
-     var allItems = document.getElementsByName("item_name");
-     var allFilters = document.getElementsByName("service_name");
-     var allAttacks = document.getElementsByName("attack_name");
-     var allOS = document.getElementsByName("OS_name");
-     var allItems_parsed = [];
-     var allFilters_parsed = [];
-     var allAttacks_parsed = []; 
-     var allOS_parsed = []; 
+		var allItems = document.getElementsByName("item_name");
+		var allFilters = document.getElementsByName("service_name");
+		var allAttacks = document.getElementsByName("attack_name");
+		var allOS = document.getElementsByName("OS_name");
+		var allItems_parsed = [];
+		var allFilters_parsed = [];
+		var allAttacks_parsed = [];
+		var allOS_parsed = [];
 
-     allFilters.forEach((f) => {
-	     allFilters_parsed.push(f.id.toLowerCase());
-     });
-     var filter_chosen = functionPatterns.filter(element => allFilters_parsed.includes(element));
-     allItems.forEach((i) => {
-	     allItems_parsed.push(i.id.toLowerCase());
-     });
-     var item_chosen = functionPatterns.filter(element => allItems_parsed.includes(element));
-     allAttacks.forEach((a) => {
-	     allAttacks_parsed.push(a.id.toLowerCase());
-     });
-     var attack_chosen = functionPatterns.filter(element => allAttacks_parsed.includes(element));
-     allOS.forEach((o) => {
-	     allOS_parsed.push(o.id.toLowerCase());
-     });
-     var os_chosen = functionPatterns.filter(element => allOS_parsed.includes(element));
+		allFilters.forEach((f) => {
+			allFilters_parsed.push(f.id.toLowerCase());
+		});
+		var filter_chosen = functionPatterns.filter(element => allFilters_parsed.includes(element));
+		allItems.forEach((i) => {
+			allItems_parsed.push(i.id.toLowerCase());
+		});
+		var item_chosen = functionPatterns.filter(element => allItems_parsed.includes(element));
+		allAttacks.forEach((a) => {
+			allAttacks_parsed.push(a.id.toLowerCase());
+		});
+		var attack_chosen = functionPatterns.filter(element => allAttacks_parsed.includes(element));
+		allOS.forEach((o) => {
+			allOS_parsed.push(o.id.toLowerCase());
+		});
+		var os_chosen = functionPatterns.filter(element => allOS_parsed.includes(element));
 
-     document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
-         var show = true;
+		document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
+			var show = true;
 
-         var binName = row.children[0].firstElementChild.innerText.toLowerCase();
-	     
-         var functionElems = Array.from(row.children[0].childNodes[2].children);
-	 
-         if (show) {
-             functionElems.forEach((item) => {
-                 item.className = '';
-             });
-	     functionElems.forEach((item) => {
-	         let siblings = [];
-		 if (item.parentNode) {
-		     let sibling = item.parentNode.firstChild;
-		     while (sibling) {
-		         if (sibling.nodeType == 1 && sibling !== item) {
-			     siblings.push(sibling);
-			 }
-			     sibling = sibling.nextSibling;
-		     }
-		     for (i = 0; i < siblings.length; i++ ) {
-		         var found = false;
-			 functionPatterns.forEach((pattern) => {
-			     if (!pattern) {
-			         return;
-			     }
-					 
-			     if (siblings[i].innerText.toLowerCase().startsWith(pattern.toLowerCase())) {
-			         found = true;
-			     }
-			 });
-			 if (found) {
-	                     siblings[i].className = 'match';
-			 }
-		     }
-		     functionPatterns.forEach((p) => {
-			     if (!p) {
-				     return;
-			     }
+			var binName = row.children[0].firstElementChild.innerText.toLowerCase();
 
-			     if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
-				     item.className = 'match';
-			     }
-		     });
+			var functionElems = Array.from(row.children[0].childNodes[2].children);
 
-		 }
-	     });
+			if (show) {
+				functionElems.forEach((item) => {
+					item.className = '';
+				});
+				functionElems.forEach((item) => {
+					let siblings = [];
+					if (item.parentNode) {
+						let sibling = item.parentNode.firstChild;
+						while (sibling) {
+							if (sibling.nodeType == 1 && sibling !== item) {
+								siblings.push(sibling);
+							}
+							sibling = sibling.nextSibling;
+						}
+						for (i = 0; i < siblings.length; i++) {
+							var found = false;
+							functionPatterns.forEach((pattern) => {
+								if (!pattern) {
+									return;
+								}
 
-         }
-	 var filled = true;
-	 var found_binName = false;
-         if (binName.indexOf(binPattern) !== -1 && binPattern.length !== 0) {
-		 found_binName = true;
-	 }
+								if (siblings[i].innerText.toLowerCase().startsWith(pattern.toLowerCase())) {
+									found = true;
+								}
+							});
+							if (found) {
+								siblings[i].className = 'match';
+							}
+						}
+						functionPatterns.forEach((p) => {
+							if (!p) {
+								return;
+							}
 
-	 functionElems.forEach((i) => {
-	     {% for item_pair in site.data.items %}
-	     {% assign item_id = item_pair[0] %}
-	     {% assign item = item_pair[1] %}
-	     
-		 if (i.innerText.toLowerCase() == "{{ item.label | downcase }}" && i.className !== "match") {
-	         filled = false;
-	     }
+							if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
+								item.className = 'match';
+							}
+						});
 
-	     {% endfor %}
-	 });
+					}
+				});
 
-	 var found_filter = -1;
-	 if (filter_chosen.length !== 0) {
-		 found_filter = 0;
-		 filter_chosen.forEach((f) => {
-			 functionElems.forEach((i) => {
-				 if (i.innerText.toLowerCase() == f) {
-					 found_filter = found_filter + 1;
-				 }
-			 });
-		 });
-	 }
+			}
+			var filled = true;
+			var found_binName = false;
+			if (binName.indexOf(binPattern) !== -1 && binPattern.length !== 0) {
+				found_binName = true;
+			}
 
-	 var found_attack = -1;
-	 if (attack_chosen.length !== 0) {
-		 found_attack = 0;
-		 attack_chosen.forEach((a) => {
-			 functionElems.forEach((i) => {
-				 if (i.innerText.toLowerCase() == a) {
-					 found_attack = found_attack + 1;
-				 }
-			 });
-		 });
-	 }
-					 
-	 var found_os = -1;
-	 if (os_chosen.length !== 0) {
-		 found_os = 0;
-		 os_chosen.forEach((o) => {
-			 functionElems.forEach((i) => {
-				 if (i.innerText.toLowerCase() == o) {
-					 found_os = found_os + 1;
-				 }
-			 });
-		 });
-	 }
+			functionElems.forEach((i) => {
+				{% for item_pair in site.data.items %}
+				{% assign item_id = item_pair[0] %}
+				{% assign item = item_pair[1] %}
 
-	 if ((!filled && (found_attack < 1 && found_filter < 1 && found_os < 1 && !found_binName)) || (found_attack == 0 || found_filter == 0 || found_os == 0) || (!filled && item_chosen.length !== 0) || ((found_attack !== attack_chosen.length && found_attack !== -1) || (found_filter !== filter_chosen.length && found_filter !== -1) || (found_os !== os_chosen.length && found_os !== -1)) || (binPattern.length !== 0 && !found_binName)) {
-		row.style.display = 'none';
-	 } else {
-	    	row.style.display = '';
-	     	noResults = false;
-	 }
+				if (i.innerText.toLowerCase() == "{{ item.label | downcase }}" && i.className !== "match") {
+					filled = false;
+				}
 
-	 if (functionPatterns.length == 0 && binPattern.length == 0) {
-	    	row.style.display = '';
-	     	noResults = false;
-	 }
+				{% endfor %}
+			});
 
-     });
+			var found_filter = -1;
+			if (filter_chosen.length !== 0) {
+				found_filter = 0;
+				filter_chosen.forEach((f) => {
+					functionElems.forEach((i) => {
+						if (i.innerText.toLowerCase() == f) {
+							found_filter = found_filter + 1;
+						}
+					});
+				});
+			}
 
-     // update the search message visibility
-     //var searchMessage = document.getElementById('search-message');
-     //searchMessage.style.display = noResults ? 'table-cell' : 'none';
- }
+			var found_attack = -1;
+			if (attack_chosen.length !== 0) {
+				found_attack = 0;
+				attack_chosen.forEach((a) => {
+					functionElems.forEach((i) => {
+						if (i.innerText.toLowerCase() == a) {
+							found_attack = found_attack + 1;
+						}
+					});
+				});
+			}
 
- function applyFilter() {
-     // filter on load according to the URL
-     var searchBox = document.getElementById('bin-search');
-     var query = decodeURIComponent(location.hash.slice(1));
-     filter(query);
-     if (query) {
-         searchBox.value = query;
-     }
- }
+			var found_os = -1;
+			if (os_chosen.length !== 0) {
+				found_os = 0;
+				os_chosen.forEach((o) => {
+					functionElems.forEach((i) => {
+						if (i.innerText.toLowerCase() == o) {
+							found_os = found_os + 1;
+						}
+					});
+				});
+			}
 
- function setup() {
-     var searchBox = document.getElementById('bin-search');
+			if ((!filled && (found_attack < 1 && found_filter < 1 && found_os < 1 && !found_binName)) || (found_attack == 0 || found_filter == 0 || found_os == 0) || (!filled && item_chosen.length !== 0) || ((found_attack !== attack_chosen.length && found_attack !== -1) || (found_filter !== filter_chosen.length && found_filter !== -1) || (found_os !== os_chosen.length && found_os !== -1)) || (binPattern.length !== 0 && !found_binName)) {
+				row.style.display = 'none';
+			} else {
+				row.style.display = '';
+				noResults = false;
+			}
 
-     // ensure height during filtering
-     var binTableWrapper = document.getElementById('bin-table-wrapper');
-     binTableWrapper.style.height = binTableWrapper.clientHeight + 'px';
+			if (functionPatterns.length == 0 && binPattern.length == 0) {
+				row.style.display = '';
+				noResults = false;
+			}
 
-     // handle user input
-     searchBox.addEventListener('input', function () {
-         var query = searchBox.value;
-         history.replaceState(null, null, encodeURI('#' + query));
-         applyFilter();
-     });
+		});
 
-     // handle shortcuts
-     addEventListener('keydown', function (event) {
-         // focus search box on valid keydown
-         if (event.key.toLowerCase().match(/^[+a-z]$/) &&
-             !(event.ctrlKey || event.altKey || event.metaKey)) {
-             searchBox.focus();
-             searchBox.parentElement.scrollIntoView();
-         }
-         // clear filter on escape
-         else if (event.key === 'Escape') {
-             location.hash = searchBox.value = '';
-             searchBox.focus();
-             searchBox.parentElement.scrollIntoView();
-         }
-     });
+		// update the search message visibility
+		//var searchMessage = document.getElementById('search-message');
+		//searchMessage.style.display = noResults ? 'table-cell' : 'none';
+	}
 
-     // handle URL changes
-     window.onhashchange = applyFilter;
+	function applyFilter() {
+		// filter on load according to the URL
+		var searchBox = document.getElementById('bin-search');
+		var query = decodeURIComponent(location.hash.slice(1));
+		filter(query);
+		if (query) {
+			searchBox.value = query;
+		}
+	}
 
-     // trigger filter on page load
-     applyFilter();
- }
+	function setup() {
+		var searchBox = document.getElementById('bin-search');
 
- setup();
+		// ensure height during filtering
+		var binTableWrapper = document.getElementById('bin-table-wrapper');
+		binTableWrapper.style.height = binTableWrapper.clientHeight + 'px';
+
+		// handle user input
+		searchBox.addEventListener('input', function () {
+			var query = searchBox.value;
+			history.replaceState(null, null, encodeURI('#' + query));
+			applyFilter();
+		});
+
+		// handle shortcuts
+		addEventListener('keydown', function (event) {
+			// focus search box on valid keydown
+			if (event.key.toLowerCase().match(/^[+a-z]$/) &&
+				!(event.ctrlKey || event.altKey || event.metaKey)) {
+				searchBox.focus();
+				searchBox.parentElement.scrollIntoView();
+			}
+			// clear filter on escape
+			else if (event.key === 'Escape') {
+				location.hash = searchBox.value = '';
+				searchBox.focus();
+				searchBox.parentElement.scrollIntoView();
+			}
+		});
+
+		// handle URL changes
+		window.onhashchange = applyFilter;
+
+		// trigger filter on page load
+		applyFilter();
+	}
+
+	setup();
 </script>

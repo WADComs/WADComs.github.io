@@ -14,3 +14,15 @@ defaults:
       path: '_wadcoms'
     values:
       layout: bin
+
+paginate:
+  collection:   wadcoms
+  per_page:     10              # maximum number of items per page
+  limit:        false          # Maximum number of pages to paginate (false for unlimited)
+  permalink:    /page:num/     # pagination path (relative to template page)
+  title_suffix: " - page :num" # Append to template's page title
+  category:     ''             # Paginate items in this category
+  categories:   []             # Paginate items in any of these categories
+  tag:          ''             # Paginate items tagged with this tag
+  tags:         []             # Paginate items tagged with any of these tags
+  reversed:     true          # Reverse the order of the documents
