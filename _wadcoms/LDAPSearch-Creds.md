@@ -5,7 +5,9 @@ description: |
   Command Reference:
 
   	Domain: test.local
+    
     Username: ldap
+    
     Password: password123
 
 command: |
