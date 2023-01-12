@@ -6,9 +6,9 @@ description: |
 
   	Domain: test.local
     
-    Username: ldap
+  	Username: ldap
     
-    Password: password123
+  	Password: password123
 
 command: |
   ldapsearch -h test.local -D 'ldap@test.local' -w password123 -b 'dc=test,dc=local'
