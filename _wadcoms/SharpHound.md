@@ -7,7 +7,7 @@ description: |
   	Output File: output.zip
 
 command: |
-  SharpHound.exe --CollectionMethod All --ZipFileName output.zip
+  SharpHound.exe --CollectionMethods All --ZipFileName output.zip
 items:
   - Shell
 OS:
