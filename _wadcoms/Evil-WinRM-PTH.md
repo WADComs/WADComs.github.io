@@ -14,7 +14,8 @@ description: |
 command: |
   evil-winrm -i 10.10.10.1 -u john -H c23b2e293fa0d312de6f59fd6d58eae3
 items:
-  - Password
+  - Target
+  - Username
   - NT Hash
 services:
   - WMI
