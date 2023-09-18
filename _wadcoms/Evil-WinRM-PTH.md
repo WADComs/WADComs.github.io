@@ -14,9 +14,8 @@ description: |
 command: |
   evil-winrm -i 10.10.10.1 -u john -H c23b2e293fa0d312de6f59fd6d58eae3
 items:
-  - Target
   - Username
-  - NT Hash
+  - Hash
 services:
   - WMI
 OS:
@@ -24,7 +23,6 @@ OS:
   - Windows
 attack_types:
   - Exploitation
-  - Pass the Hash
 references:
   - https://github.com/Hackplayers/evil-winrm
 ---
