@@ -20,6 +20,8 @@ items:
   - Password
 services:
   - Kerberos
+  - LDAP
+  - DNS
 attack_types:
   - Exploitation
 OS:
