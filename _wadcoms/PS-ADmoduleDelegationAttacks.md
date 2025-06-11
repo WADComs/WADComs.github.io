@@ -1,7 +1,7 @@
 description: |
   Having imported the pwsh AD module referenced in the project, we can begin to use it to enumerate for potential points of exploit
   one of the prime being kerberos delegation attacks. The following 4 line commands will enumerate the entire AD forest for RBCD, Constrained and Unconstrained delegation attacks.
-  Note that we will also factor in protocol trainsiton. This changes the attack vector slightly. See references below
+  Note that we will also factor in protocol trainsiton as those change the attack vector slightly. See references below
 
 command: |
   # 1. Unconstrained (turned on for all Domain controllers by default)
