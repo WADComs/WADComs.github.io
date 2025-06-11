@@ -46,6 +46,9 @@ Feel free to use any file in the [`_wadcoms/`] folder as an example.
 ## Pull request process
 
 I accept commands that run on either Linux or Windows, just as long as they target Windows machines (this is a Windows/AD cheat sheet after all). 
+It would be helpful to keep in mind when contributing commands/tool references to try and not have duplicates. It is easy to have 10s or hundreds of tools
+all do similar things and ideally worth while addiitons are prefered. That way the project is both not clutered, and provides options for the operator. Have 
+a look at the current commands already in the project and consider if the proposed addition is a signifcant addon in capability or choice for the operator
 
 Before sending a pull request of a new command, ensure the following:
 
