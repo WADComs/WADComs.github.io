@@ -30,3 +30,7 @@ PFX:
 Shell:
   label: Shell
   description: You have a shell on the Windows host and need to know what you can do.
+
+PowerShell:
+  label: PowerShell
+  description: You have a PowerShell session on the Windows host and need to know what you can do.
