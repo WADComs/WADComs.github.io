@@ -1,7 +1,7 @@
 
 ---
 description: |
-  Rubeus' `s4u` module performs Kerberos constrained delegation attacks using the S4U2Self and S4U2Proxy protocols to impersonate users and request service tickets on their behalf. This technique abuses accounts configured with delegation privileges (msDS-AllowedToDelegateTo) to impersonate any domain user and further alter the service specified since SPNs are stored in plaintext and thus access any service on the target system as any user
+  Rubeus' `s4u` module performs Kerberos constrained delegation attacks using the S4U2Self and S4U2Proxy. This technique abuses accounts configured with delegation privileges (msDS-AllowedToDelegateTo) to impersonate any domain user and further alter the service specified since SPNs are stored in plaintext and thus access any service on the target system as any user
 
   Command Reference:
 
