@@ -1,3 +1,4 @@
+---
 description: |
   Having imported the pwsh AD module referenced in the project, we can begin to use it to enumerate for potential points of exploit
   one of the prime being kerberos delegation attacks. The following 4 line commands will enumerate the entire AD forest for RBCD, Constrained and Unconstrained delegation attacks.
@@ -28,3 +29,5 @@ references:
   - https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html
   - https://dirkjanm.io/krbrelayx-unconstrained-delegation-abuse-toolkit/
   - https://github.com/samratashok/ADModule
+
+---
