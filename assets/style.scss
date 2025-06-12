@@ -12,16 +12,16 @@ $column-width: 800px;
 $grace-space: 200px;
 $layout-break: "(min-width: #{$column-width + $grace-space})";
 
-// @media #{$layout-break} {
-//     body {
-//         width: $column-width;
-//         margin: 40px auto;
-//     }
+@media #{$layout-break} {
+    body {
+        width: $column-width;
+        margin: 40px auto;
+    }
 
-//     p {
-//         text-align: justify;
-//     }
-// }
+    p {
+        text-align: justify;
+    }
+}
 
 @media not all and #{$layout-break} {
     .github-corner {
@@ -33,7 +33,6 @@ $layout-break: "(min-width: #{$column-width + $grace-space})";
 
 body {
     font-family: sans, sans-serif;
-    max-width: $column-width;
 }
 
 code {
