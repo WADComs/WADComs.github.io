@@ -258,6 +258,10 @@ h2, h3, h4, h5, h5 {
     font-size: 1.0rem;
     padding: 0.75em 1.0em;
     border-radius: 0.25em;
+    width: 100vw;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
     background: $marked;
 }
 
