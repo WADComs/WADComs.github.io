@@ -271,13 +271,15 @@ h1 {
 .bin-name {
   display: flex;
   font-family: monospace;
-  font-size: 1rem;
-  padding: 0.75em 1em;
+  font-size: 1.0rem;
+  padding: 0.75em 1.0em;
   border-radius: 0.25em;
   word-break: break-word;
   overflow-wrap: anywhere;
   white-space: normal;
   background: $marked;
+  max-width: 78%;
+
 }
 
 .filter-name {
