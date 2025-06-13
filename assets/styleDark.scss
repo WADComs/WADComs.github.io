@@ -51,6 +51,9 @@ pre {
     background: $marked;
     padding: 1em;
     overflow-x: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
 
     code {
         padding: 0;
@@ -264,6 +267,9 @@ h2, h3, h4, h5, h5 {
     font-size: 1.0rem;
     padding: 0.75em 1.0em;
     border-radius: 0.25em;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
     background: $marked;
 }
 
