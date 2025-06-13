@@ -27,3 +27,5 @@ references:
   - https://github.com/GhostPack/Certify
   - https://posts.specterops.io/certified-pre-owned-d95910965cd2
   - https://www.thehacker.recipes/ad/movement/adcs/
+
+---
