@@ -16,7 +16,6 @@ $layout-break: "(min-width: #{$column-width + $grace-space})";
   body {
     width: $column-width;
     margin: 40px auto;
-    // padding: 40px;
   }
 
   p {
@@ -47,9 +46,7 @@ pre {
   background: $lighter;
   padding: 1em;
   overflow-x: auto;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-  white-space: normal;
+  white-space: pre-wrap;
 
   code {
     padding: 0;
