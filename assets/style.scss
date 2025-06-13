@@ -46,7 +46,9 @@ pre {
   background: $lighter;
   padding: 1em;
   overflow-x: auto;
-  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
 
   code {
     padding: 0;
