@@ -14,8 +14,9 @@ $layout-break: "(min-width: #{$column-width + $grace-space})";
 
 @media #{$layout-break} {
   body {
-    width: $column-width;
+    // width: $column-width;
     margin: 40px auto;
+    padding: 40px;
   }
 
   p {
@@ -46,7 +47,9 @@ pre {
   background: $lighter;
   padding: 1em;
   overflow-x: auto;
-  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
 
   code {
     padding: 0;
@@ -276,7 +279,6 @@ h1 {
   overflow-wrap: anywhere;
   white-space: normal;
   background: $marked;
-  max-width: 78%;
 
 }
 
