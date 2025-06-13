@@ -13,326 +13,345 @@ $grace-space: 200px;
 $layout-break: "(min-width: #{$column-width + $grace-space})";
 
 @media #{$layout-break} {
-    body {
-        width: $column-width;
-        margin: 40px auto;
-    }
+  body {
+    width: $column-width;
+    margin: 40px auto;
+  }
 
-    p {
-        text-align: justify;
-    }
+  p {
+    text-align: justify;
+  }
 }
 
 @media not all and #{$layout-break} {
-    .github-corner {
-        display: none;
-    }
+  .github-corner {
+    display: none;
+  }
 }
 
 // common tags
 
 body {
-    font-family: sans, sans-serif;
+  font-family: sans, sans-serif;
 }
 
 code {
-    padding: 0.15em 0.25em;
-    border-radius: 0.25em;
-    color: $accent;
-    background: $lighter;
+  padding: 0.15em 0.25em;
+  border-radius: 0.25em;
+  color: $accent;
+  background: $lighter;
 }
 
 pre {
-    background: $lighter;
-    padding: 1em;
-    overflow-x: auto;
+  background: $lighter;
+  padding: 1em;
+  overflow-x: auto;
+  white-space: pre-wrap;
 
-    code {
-        padding: 0;
-        border-radius: 0;
-    }
+  code {
+    padding: 0;
+    border-radius: 0;
+  }
 }
 
-a:link, a:visited {
-    color: $accent;
+a:link,
+a:visited {
+  color: $accent;
 }
 
 a:hover {
-    color: $hover;
+  color: $hover;
 }
 
-input[type=checkbox] {
-	display: none;
+input[type="checkbox"] {
+  display: none;
 }
 
 // permalink on headings
 
-h2, h3, h4, h5, h5 {
+h2,
+h3,
+h4,
+h5,
+h5 {
+  .permalink {
+    margin-left: 5px;
+    text-decoration: none;
+    visibility: hidden;
+
+    &::before {
+      content: "#";
+    }
+  }
+
+  &:target {
+    border-left: 5px solid $accent;
+    padding-left: 5px;
+  }
+
+  &:hover {
     .permalink {
-        margin-left: 5px;
-        text-decoration: none;
-        visibility: hidden;
-
-        &::before {
-            content: "#";
-        }
+      visibility: visible;
     }
-
-    &:target {
-        border-left: 5px solid $accent;
-        padding-left: 5px;
-    }
-
-    &:hover {
-        .permalink {
-            visibility: visible;
-        }
-    }
+  }
 }
 
 // binary list and search
 
 #bin-search-wrapper {
-    margin: 20px 0;
-    padding: 10px 0;
-    position: relative; // XXX needed for tooltip sizing
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-row: auto auto;
+  margin: 20px 0;
+  padding: 10px 0;
+  position: relative; // XXX needed for tooltip sizing
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-row: auto auto;
 
-    #bin-search-filters {
-        text-align: center;
-	
-	input[type=checkbox] + label {
-            background: $lighter;
-            font-size: initial;
-            border-radius: 0.25em;
-	    cursor: pointer;
+  #bin-search-filters {
+    text-align: center;
 
-            &:hover:before {
-                content: attr(data-title);
-                font-size: 0.8rem;
-                display: block;
-                position: absolute;
-                left: 0;
-                right: 0;
-                margin-top: 1.75rem; // XXX below the button
-                margin-left: 10%;
-                margin-right: 10%;
-                padding: 1em;
-                border-radius: 1em;
-                color: $lighter;
-                background: rgba(0, 0, 0, 0.75);
-                z-index: 1;
-                pointer-events: none;
-            }
-    	}
+    input[type="checkbox"] + label {
+      background: $lighter;
+      font-size: initial;
+      border-radius: 0.25em;
+      cursor: pointer;
+
+      &:hover:before {
+        content: attr(data-title);
+        font-size: 0.8rem;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-top: 1.75rem; // XXX below the button
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 1em;
+        border-radius: 1em;
+        color: $lighter;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 1;
+        pointer-events: none;
+      }
     }
+  }
 }
 
 #bin-search {
-	margin: 20px 0;
-	padding: 10px 0;
-	position: relative; // XXX needed for tooltip sizing
-	margin-top: 25px;
-	padding: 1em;
-	font-size: 1rem;
-	width: 100%;
-	box-sizing: border-box;
-	border: 1px solid $accent;
-	outline-color: $accent;
+  margin: 20px 0;
+  padding: 10px 0;
+  position: relative; // XXX needed for tooltip sizing
+  margin-top: 25px;
+  padding: 1em;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $accent;
+  outline-color: $accent;
 }
 
 #bin-table {
-    width: 100%;
+  width: 100%;
 
-    th, td {
-        padding: 0.2em 1em;
-    }
+  th,
+  td {
+    padding: 0.2em 1em;
+  }
 
-    th {
-        text-align: left;
-    }
+  th {
+    text-align: left;
+  }
 
-    tbody tr:hover {
-        background: $lighter;
-    }
+  tbody tr:hover {
+    background: $lighter;
+  }
 
-    #search-message {
-        display: table-cell;
-        text-align: center;
-        padding: 1em;
-    }
+  #search-message {
+    display: table-cell;
+    text-align: center;
+    padding: 1em;
+  }
 }
 
 // filter description
 
 .filter-list {
-    font-size: 0.8rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  font-size: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-    li {
-        display: inline-block;
+  li {
+    display: inline-block;
 
-        a {
-            display: inline-block;
-            padding: 0.25em 0.5em;
-            margin: 0.2em 0;
-            border: 1px solid $accent;
-        }
-
-        a:link, a:visited {
-            color: $accent;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: $hover;
-            border-color: $hover;
-        }
-
-        &.match a {
-            background: $marked;
-        }
-
-        input[type=checkbox] + label {
-            display: inline-block;
-            padding: 0.25em 0.5em;
-            margin: 0.2em 0;
-            border: 1px solid $accent;
-            color: $accent;
-            text-decoration: none;
-        }
-	
-        input[type=checkbox]:hover + label {
-            color: $hover;
-            border-color: $hover;
-        }
-
-        &.match input[type=checkbox] + label {
-            background: $marked;
-        }
+    a {
+      display: inline-block;
+      padding: 0.25em 0.5em;
+      margin: 0.2em 0;
+      border: 1px solid $accent;
     }
+
+    a:link,
+    a:visited {
+      color: $accent;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $hover;
+      border-color: $hover;
+    }
+
+    &.match a {
+      background: $marked;
+    }
+
+    input[type="checkbox"] + label {
+      display: inline-block;
+      padding: 0.25em 0.5em;
+      margin: 0.2em 0;
+      border: 1px solid $accent;
+      color: $accent;
+      text-decoration: none;
+    }
+
+    input[type="checkbox"]:hover + label {
+      color: $hover;
+      border-color: $hover;
+    }
+
+    &.match input[type="checkbox"] + label {
+      background: $marked;
+    }
+  }
 }
 
 // bin examples
 
+h1 {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 .examples {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    counter-reset: item;
-    margin: 0;
-    padding: 0;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
 
-    li {
-        display: table-row;
+  li {
+    display: table-row;
 
-        &:not(:only-child):before {
-            display: table-cell;
-            font-size: 0.8rem;
-            font-weight: bold;
-            width: 3em;
-            text-align: center;
-            counter-increment: item;
-        }
+    &:not(:only-child):before {
+      display: table-cell;
+      font-size: 0.8rem;
+      font-weight: bold;
+      width: 3em;
+      text-align: center;
+      counter-increment: item;
     }
+  }
 }
 
 // other classes
 
 .logo {
-    $margin: 20px;
-    float: right;
-    width: 100px;
-    height: 100px;
-    margin-left: $margin;
-    margin-bottom: $margin;
+  $margin: 20px;
+  float: right;
+  width: 100px;
+  height: 100px;
+  margin-left: $margin;
+  margin-bottom: $margin;
 }
 
 .bin-name {
-    display: flex;
-    font-family: monospace;
-    font-size: 1.0rem;
-    padding: 0.75em 1.0em;
-    border-radius: 0.25em;
-    background: $marked;
-    max-width: 78%;
+  display: flex;
+  font-family: monospace;
+  font-size: 1.0rem;
+  padding: 0.75em 1.0em;
+  border-radius: 0.25em;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  background: $marked;
+  max-width: 78%;
+
 }
 
 .filter-name {
-    font-size: 1.4rem;
-    font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .github-buttons {
-    display: inline-block;
-    margin-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
 
-    // avoid displaying the link text during loading
-    a.github-button {
-        visibility: hidden;
-    }
+  // avoid displaying the link text during loading
+  a.github-button {
+    visibility: hidden;
+  }
 }
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 100px;
-    height: 40px;
-    margin-bottom: -10px;
-    margin-left: 10px;
-  }
-  
-  .switch input {display:none;}
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: .4s;
-    background-image: url(night.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    transition: .4s;
-  }
-  
-  .slider:before +.slider::before{
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    -webkit-transition: .4s;
-    transition: .4s;
-    background-image: url(night.jpg);
-  }
-  
-  input:checked + .slider {
-    background-image: url(day.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  .slider.round {
-    border-radius: 34px;
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin-bottom: -10px;
+  margin-left: 10px;
+}
 
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 0.4s;
+  background-image: url(night.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: 0.4s;
+}
+
+.slider:before + .slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-image: url(night.jpg);
+}
+
+input:checked + .slider {
+  background-image: url(day.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
