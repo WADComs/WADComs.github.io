@@ -28,3 +28,4 @@ attack_types:
 references:
   - https://docs.microsoft.com/en-us/powershell/module/activedirectory/
   - https://github.com/samratashok/ADModule
+---
