@@ -26,4 +26,4 @@ references:
   - https://www.ired.team/offensive-security/credential-access-and-credential-dumping
   - https://www.synacktiv.com/en/publications/lsa-secrets-revisiting-secretsdump
 
-
+---
