@@ -49,6 +49,25 @@
              link.href = `#${heading.id}`;
              heading.appendChild(link);
          });
+
+        // Function to import URL parameters into the search bar.
+         function getForAttributesAndMatch() {
+                const keysSearched = window.location.hash.substr(1).split('+');
+                const items = document.querySelectorAll("#bin-search-filters li");
+                items.forEach(item => {
+                    const label = item.querySelector("label");
+                    if (label) {
+                        const forValue = label.getAttribute("for");
+                        if (keysSearched.includes(encodeURIComponent(forValue))) {
+                            document.getElementById(item.querySelector("input").id).className = 'match';
+                            document.getElementById(label.id).textContent = document.getElementById(label.id).textContent + "✓";
+                            var checkbox = document.getElementById(item.querySelector("input").id);
+                            checkbox.checked = true;
+                        }
+                    }
+                });
+            }
+        getForAttributesAndMatch();          
         </script>
     </body>
 </html>
