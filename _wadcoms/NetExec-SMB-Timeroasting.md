@@ -27,4 +27,5 @@ attack_types:
 references:
   - https://github.com/Pennyw0rth/NetExec
   - https://cybersecurity.bureauveritas.com/blog/timeroasting-attacking-trust-accounts-in-active-directory
+  - https://en.hackita.it/articoli/netexec/
 ---
